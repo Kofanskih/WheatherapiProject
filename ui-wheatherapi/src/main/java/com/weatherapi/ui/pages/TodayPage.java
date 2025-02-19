@@ -4,7 +4,6 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import org.testng.Assert;
-
 import static com.codeborne.selenide.Selenide.$;
 
 public class TodayPage {
