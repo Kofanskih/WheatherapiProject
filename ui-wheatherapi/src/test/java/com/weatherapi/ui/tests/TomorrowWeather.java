@@ -1,13 +1,13 @@
 package com.weatherapi.ui.tests;
 
 import com.weatherapi.ui.pages.MainPage;
-import com.weatherapi.ui.pages.TodayPage;
+import com.weatherapi.ui.pages.TomorrowPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utils.ConfigurateBrowserSettings;
 
-public class TodaysWeatherForecasTest {
+public class TomorrowWeather {
     private final String MAIN_PAGE = "https://www.weatherapi.com/weather/";
 
     @BeforeClass
@@ -21,19 +21,18 @@ public class TodaysWeatherForecasTest {
     }
 
     @Test
-    void userGoToTodayPageV1() {
-        new TodayPage()
-                .goToTodayPage()
-                .checkTodayPageURL();
+    void userGoToTomorrowPageV1() {
+        new TomorrowPage()
+                .goToTomorrowPage()
+                .checkTomorrowPageURL();
 
     }
 
     @Test
-    void userGoToTodayPageV2() {
-        new TodayPage()
-                .goToTodayPage()
-                .checkTodayPageElements();
+    void userGoToTomorrowPageV2() {
+        new TomorrowPage()
+                .goToTomorrowPage()
+                .checkTomorrowPageElements();
 
     }
-
 }
