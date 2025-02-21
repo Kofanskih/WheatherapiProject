@@ -13,17 +13,17 @@ public class HistoryPage {
     private final SelenideElement historyElement = $("[class=\"p-2 h4\"][title=\"Benidorm weather history\"]");
     public final String textElementHistory = "History";
 
-    public HistoryPage goToTomorrowPage(){
+    public HistoryPage clickHistoryButton(){
         historyButton.click();
         return new HistoryPage();
     }
 
-    public HistoryPage checkTomorrowPageURL(){
+    public HistoryPage checkHistoryPageURL(){
         Assert.assertEquals(WebDriverRunner.getWebDriver().getCurrentUrl(), historyURL);
         return this;
     }
 
-    public HistoryPage checkTomorrowPageElements(){
+    public HistoryPage checkHistoryPageElements(){
         historyElement.shouldHave(Condition.exactText(textElementHistory));
         return this;
     }

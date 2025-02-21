@@ -12,7 +12,7 @@ public class TodayPage {
     private final SelenideElement todayElement = $("[href=\"/weather/q/benidorm-699566\"][title=\"Today weather\"]");
     public final String textElementToday = "Today";
 
-    public TodayPage goToTodayPage(){
+    public TodayPage clickTodayButton(){
         todayButton.click();
         return new TodayPage();
     }

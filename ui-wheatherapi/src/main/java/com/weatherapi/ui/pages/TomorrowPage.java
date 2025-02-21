@@ -13,7 +13,7 @@ public class TomorrowPage {
     private final SelenideElement tomorrowElement = $("[href=\"/weather/q/benidorm-699566?day=1\"][title=\"Tomorrow weather\"]");
     public final String textElementTomorrow = "Tomorrow";
 
-    public TomorrowPage goToTomorrowPage(){
+    public TomorrowPage clickTommorrowButton(){
         tomorrowButton.click();
         return new TomorrowPage();
     }

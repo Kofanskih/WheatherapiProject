@@ -7,6 +7,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utils.ConfigurateBrowserSettings;
 
+import static com.codeborne.selenide.Selenide.open;
+
 public class TomorrowWeather {
     private final String MAIN_PAGE = "https://www.weatherapi.com/weather/";
 
@@ -17,13 +19,14 @@ public class TomorrowWeather {
 
     @BeforeMethod
     void preConditionsMethod(){
-        new MainPage(MAIN_PAGE);
+        open(MAIN_PAGE);
+
     }
 
     @Test
     void userGoToTomorrowPageV1() {
         new TomorrowPage()
-                .goToTomorrowPage()
+                .clickTommorrowButton()
                 .checkTomorrowPageURL();
 
     }
@@ -31,7 +34,7 @@ public class TomorrowWeather {
     @Test
     void userGoToTomorrowPageV2() {
         new TomorrowPage()
-                .goToTomorrowPage()
+                .clickTommorrowButton()
                 .checkTomorrowPageElements();
 
     }
