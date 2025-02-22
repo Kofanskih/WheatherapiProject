@@ -1,6 +1,5 @@
 package com.weatherapi.ui.tests;
 
-import com.weatherapi.ui.pages.MainPage;
 import com.weatherapi.ui.pages.TodayPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
