@@ -1,9 +1,6 @@
 package com.wheatherapi.service;
 
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-
-import static io.restassured.RestAssured.given;
 
 public class CurrentService extends BaseService{
     private final String GET_PATH = "/current.json?";
