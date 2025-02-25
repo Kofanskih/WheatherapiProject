@@ -1,17 +1,16 @@
 package com.weatherapi.ui.tests;
 
+import com.weatherapi.ui.pageModels.MainPageModel;
 import com.weatherapi.ui.pages.HistoryPage;
 
+import com.weatherapi.ui.pages.MainPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utils.ConfigurateBrowserSettings;
 
-import static com.codeborne.selenide.Selenide.open;
 
 public class HistoryWeather {
-    private final String MAIN_PAGE = "https://www.weatherapi.com/weather/";
-
 
     @BeforeClass
     void preConditionsClass() {
@@ -20,7 +19,7 @@ public class HistoryWeather {
 
     @BeforeMethod
     void preConditionsMethod(){
-        open(MAIN_PAGE);
+        new MainPage().openMainPage(new MainPageModel().mainPageURL());
 
     }
 

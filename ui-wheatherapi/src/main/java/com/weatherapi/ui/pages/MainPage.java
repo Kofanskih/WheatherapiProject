@@ -3,6 +3,9 @@ package com.weatherapi.ui.pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.weatherapi.ui.pageModels.LoginUserPageModel;
+import com.weatherapi.ui.pageModels.MainPageModel;
+
 import static com.codeborne.selenide.Selenide.$;
 
 public class MainPage {
@@ -10,10 +13,12 @@ public class MainPage {
     private final SelenideElement loginPage = $("[href=\"/login.aspx\"]");
     public final String loginButton = "Login";
 
-    public MainPage open() {
-        Selenide.open(MAIN_PAGE);
-        return new MainPage();
+    public MainPage openMainPage(MainPageModel mainPageModel) {
+
+        Selenide.open(mainPageModel.getMAIN_PAGE());
+        return this;
     }
+
 
     public LoginPage goToLoginPage(){
         loginPage.click();

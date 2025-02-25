@@ -1,6 +1,7 @@
 package com.weatherapi.ui.tests;
 
 import com.weatherapi.ui.pageModels.LoginUserPageModel;
+import com.weatherapi.ui.pageModels.MainPageModel;
 import com.weatherapi.ui.pages.LoginPage;
 import com.weatherapi.ui.pages.MainPage;
 import com.weatherapi.ui.pages.PersonalPage;
@@ -8,14 +9,10 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utils.ConfigurateBrowserSettings;
-import static com.codeborne.selenide.Selenide.open;
 
 public class LoginWeatherapiTest {
-    private final String MAIN_PAGE = "https://www.weatherapi.com/weather/";
     private final String personalAccountText = "Welcome Back\n";
     private final String WARNING_MESSAGE= "Your login attempt was not successful. Please try again.";
-
-
 
     @BeforeClass
     void preConditionsClass() {
@@ -24,7 +21,7 @@ public class LoginWeatherapiTest {
 
     @BeforeMethod
     void preConditionsMethod(){
-        open(MAIN_PAGE);
+        new MainPage().openMainPage(new MainPageModel().mainPageURL());
 
     }
 
