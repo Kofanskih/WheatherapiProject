@@ -1,6 +1,7 @@
 package com.weatherapi.ui.tests;
 
 import com.weatherapi.ui.pages.HistoryPage;
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -10,6 +11,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class HistoryWeather {
     private final String MAIN_PAGE = "https://www.weatherapi.com/weather/";
+
 
     @BeforeClass
     void preConditionsClass() {
@@ -45,5 +47,20 @@ public class HistoryWeather {
                 .checkPressureData();
     }
 
+    @Test
+    void checkElementInTable(){
+        new HistoryPage()
+                .clickHistoryButton()
+                .checkWindElementInHistoryTable();
+
+    }
+
+    @Test
+    void checkHoursElementInWeatherAveragesTable(){
+        new HistoryPage()
+                .clickHistoryButton()
+                .checkHoursElementInHistoryTable();
+
+    }
 
 }

@@ -1,12 +1,13 @@
 package com.weatherapi.ui.pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 
 public class HistoryPage {
     private final SelenideElement historyButton = $("[class=\"p-2\"][title=\"Benidorm weather history\"]");
@@ -15,6 +16,13 @@ public class HistoryPage {
     private final String textElementHistory = "History";
     private final SelenideElement pressureThirdElementInTable = $x("//main//tbody/tr[7]/td[5][@style=\"background-color:#C6F56F;\"]");
     private final String pressureElement = "mb";
+    private final ElementsCollection tableWeatherIn = $$(By.tagName("td"));
+    private final String windElementInTheTableWeatherIn = tableWeatherIn.get(22).getText();
+    private final String windElement = "kmph";
+    private final String hourElementInTheTableAnnualWeatherAverages = tableWeatherIn.get(115).getText();
+    private final String hourElement = "hours";
+
+
 
     public HistoryPage clickHistoryButton(){
         historyButton.click();
@@ -33,6 +41,16 @@ public class HistoryPage {
 
     public HistoryPage checkPressureData(){
         pressureThirdElementInTable.shouldHave(Condition.partialText(pressureElement));
+        return this;
+    }
+
+    public HistoryPage checkWindElementInHistoryTable(){
+        Assert.assertTrue(windElementInTheTableWeatherIn.endsWith(windElement));
+        return this;
+    }
+
+    public HistoryPage checkHoursElementInHistoryTable(){
+        Assert.assertTrue(hourElementInTheTableAnnualWeatherAverages.endsWith(hourElement));
         return this;
     }
 

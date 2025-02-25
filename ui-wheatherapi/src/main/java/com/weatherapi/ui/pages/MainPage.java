@@ -10,7 +10,7 @@ public class MainPage {
     private final SelenideElement loginPage = $("[href=\"/login.aspx\"]");
     public final String loginButton = "Login";
 
-    public  MainPage open() {
+    public MainPage open() {
         Selenide.open(MAIN_PAGE);
         return new MainPage();
     }
