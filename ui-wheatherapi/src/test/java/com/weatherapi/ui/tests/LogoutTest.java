@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import utils.ConfigurateBrowserSettings;
 
 public class LogoutTest {
+    public final String loginButton = "Login";
 
     @BeforeClass
     void preConditions() {
@@ -29,7 +30,7 @@ public class LogoutTest {
     void userBookShopLogout() {
         new PersonalPage()
                 .logout()
-                .checkUserLogout();
+                .checkUserLogout(loginButton);
 
     }
 }

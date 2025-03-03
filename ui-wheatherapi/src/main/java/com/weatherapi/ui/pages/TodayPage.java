@@ -10,7 +10,6 @@ public class TodayPage {
     private final SelenideElement todayButton = $("[class=\"p-2 h4\"][title=\"Today weather\"]");
     private final String todayURL = "https://www.weatherapi.com/weather/q/benidorm-699566";
     private final SelenideElement todayElement = $("[href=\"/weather/q/benidorm-699566\"][title=\"Today weather\"]");
-    public final String textElementToday = "Today";
 
     public TodayPage clickTodayButton(){
         todayButton.click();
@@ -22,7 +21,7 @@ public class TodayPage {
         return this;
     }
 
-    public TodayPage checkTodayPageElements(){
+    public TodayPage checkTodayPageElements(String textElementToday){
         todayElement.shouldHave(Condition.exactText(textElementToday));
         return this;
     }

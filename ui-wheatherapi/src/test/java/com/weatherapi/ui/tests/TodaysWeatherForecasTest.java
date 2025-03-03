@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import utils.ConfigurateBrowserSettings;
 
 public class TodaysWeatherForecasTest {
+    public final String textElementToday = "Today";
 
     @BeforeClass
     void preConditionsClass() {
@@ -33,7 +34,7 @@ public class TodaysWeatherForecasTest {
     void userGoToTodayPageV2() {
         new TodayPage()
                 .clickTodayButton()
-                .checkTodayPageElements();
+                .checkTodayPageElements(textElementToday);
 
     }
 

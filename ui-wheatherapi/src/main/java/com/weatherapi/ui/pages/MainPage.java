@@ -11,7 +11,6 @@ import static com.codeborne.selenide.Selenide.$;
 public class MainPage {
     private final String MAIN_PAGE = "https://www.weatherapi.com/weather/";
     private final SelenideElement loginPage = $("[href=\"/login.aspx\"]");
-    public final String loginButton = "Login";
 
     public MainPage openMainPage(MainPageModel mainPageModel) {
 
@@ -25,7 +24,7 @@ public class MainPage {
         return new LoginPage();
     }
 
-    public MainPage checkUserLogout(){
+    public MainPage checkUserLogout(String loginButton){
         loginPage.shouldHave(Condition.exactText(loginButton));
         return new MainPage();
     }

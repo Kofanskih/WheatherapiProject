@@ -10,6 +10,7 @@ import utils.ConfigurateBrowserSettings;
 
 
 public class TomorrowWeather {
+    public final String textElementTomorrow = "Tomorrow";
 
     @BeforeClass
     void preConditionsClass() {
@@ -34,7 +35,7 @@ public class TomorrowWeather {
     void userGoToTomorrowPageV2() {
         new TomorrowPage()
                 .clickTommorrowButton()
-                .checkTomorrowPageElements();
+                .checkTomorrowPageElements(textElementTomorrow);
 
     }
 }

@@ -11,7 +11,6 @@ public class TomorrowPage {
     private final SelenideElement tomorrowButton = $("[class=\"p-2\"][title=\"Tomorrow weather\"]");
     private final String tomorrowURL = "https://www.weatherapi.com/weather/q/benidorm-699566?day=1";
     private final SelenideElement tomorrowElement = $("[href=\"/weather/q/benidorm-699566?day=1\"][title=\"Tomorrow weather\"]");
-    public final String textElementTomorrow = "Tomorrow";
 
     public TomorrowPage clickTommorrowButton(){
         tomorrowButton.click();
@@ -23,7 +22,7 @@ public class TomorrowPage {
         return this;
     }
 
-    public TomorrowPage checkTomorrowPageElements(){
+    public TomorrowPage checkTomorrowPageElements(String textElementTomorrow){
         tomorrowElement.shouldHave(Condition.exactText(textElementTomorrow));
         return this;
     }

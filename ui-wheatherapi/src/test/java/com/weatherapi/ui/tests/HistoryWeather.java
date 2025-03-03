@@ -11,6 +11,10 @@ import utils.ConfigurateBrowserSettings;
 
 
 public class HistoryWeather {
+    private final String textElementHistory = "History";
+    private final String pressureElement = "mb";
+    private final String windElement = "kmph";
+    private final String hourElement = "hours";
 
     @BeforeClass
     void preConditionsClass() {
@@ -35,7 +39,7 @@ public class HistoryWeather {
     void userGoToHistoryPageV2() {
         new HistoryPage()
                 .clickHistoryButton()
-                .checkHistoryPageElements();
+                .checkHistoryPageElements(textElementHistory);
 
     }
 
@@ -43,14 +47,14 @@ public class HistoryWeather {
     void verifyPressureElementInTheHistoryTable(){
         new HistoryPage()
                 .clickHistoryButton()
-                .checkPressureData();
+                .checkPressureData(pressureElement);
     }
 
     @Test
     void checkElementInTable(){
         new HistoryPage()
                 .clickHistoryButton()
-                .checkWindElementInHistoryTable();
+                .checkWindElementInHistoryTable(windElement);
 
     }
 
@@ -58,7 +62,7 @@ public class HistoryWeather {
     void checkHoursElementInWeatherAveragesTable(){
         new HistoryPage()
                 .clickHistoryButton()
-                .checkHoursElementInHistoryTable();
+                .checkHoursElementInHistoryTable(hourElement);
 
     }
 

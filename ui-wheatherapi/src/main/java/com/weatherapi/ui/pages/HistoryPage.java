@@ -13,14 +13,10 @@ public class HistoryPage {
     private final SelenideElement historyButton = $("[class=\"p-2\"][title=\"Benidorm weather history\"]");
     private final String historyURL = "https://www.weatherapi.com/history/q/benidorm-699566";
     private final SelenideElement historyElement = $("[class=\"p-2 h4\"][title=\"Benidorm weather history\"]");
-    private final String textElementHistory = "History";
     private final SelenideElement pressureThirdElementInTable = $x("//main//tbody/tr[7]/td[5][@style=\"background-color:#C6F56F;\"]");
-    private final String pressureElement = "mb";
     private final ElementsCollection tableWeatherIn = $$(By.tagName("td"));
     private final String windElementInTheTableWeatherIn = tableWeatherIn.get(22).getText();
-    private final String windElement = "kmph";
     private final String hourElementInTheTableAnnualWeatherAverages = tableWeatherIn.get(115).getText();
-    private final String hourElement = "hours";
 
 
 
@@ -34,22 +30,22 @@ public class HistoryPage {
         return this;
     }
 
-    public HistoryPage checkHistoryPageElements(){
+    public HistoryPage checkHistoryPageElements(String textElementHistory){
         historyElement.shouldHave(Condition.exactText(textElementHistory));
         return this;
     }
 
-    public HistoryPage checkPressureData(){
+    public HistoryPage checkPressureData(String pressureElement){
         pressureThirdElementInTable.shouldHave(Condition.partialText(pressureElement));
         return this;
     }
 
-    public HistoryPage checkWindElementInHistoryTable(){
+    public HistoryPage checkWindElementInHistoryTable(String windElement){
         Assert.assertTrue(windElementInTheTableWeatherIn.endsWith(windElement));
         return this;
     }
 
-    public HistoryPage checkHoursElementInHistoryTable(){
+    public HistoryPage checkHoursElementInHistoryTable(String hourElement){
         Assert.assertTrue(hourElementInTheTableAnnualWeatherAverages.endsWith(hourElement));
         return this;
     }
