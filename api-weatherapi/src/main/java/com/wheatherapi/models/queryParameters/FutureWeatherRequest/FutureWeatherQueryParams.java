@@ -17,7 +17,6 @@ public class FutureWeatherQueryParams {
     @JsonProperty("dt")
     private String dt;
 
-
     @JsonIgnore
     @JsonProperty("location")
     private String location;

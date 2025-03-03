@@ -33,7 +33,7 @@ public class FutureWeatherTest {
         futureWeatherQueryParams.setQ("Malaga");
         futureWeatherQueryParams.setDt("2025-04-01");
         futureWeatherQueryParams.setKey("ae34ceb905814b6bb0f215858252102");
-        new FutureService()
+        FutureWeatherQueryParams tr = new FutureService()
                 .sendFutureRequest2(futureWeatherQueryParams)
                 .then()
                 .statusCode(200)
@@ -41,6 +41,9 @@ public class FutureWeatherTest {
                 .response()
                 .as(FutureWeatherQueryParams.class);
         Assert.assertNull(futureWeatherQueryParams.getLocation());
+
+        FutureWeatherResponse futureWeatherResponse = new FutureWeatherResponse();
+        //futureWeatherResponse.getForecast().
 
     }
 
