@@ -8,6 +8,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utils.ConfigurateBrowserSettings;
 
+import java.io.IOException;
+
 
 public class TomorrowWeather {
     public final String textElementTomorrow = "Tomorrow";
@@ -18,8 +20,8 @@ public class TomorrowWeather {
     }
 
     @BeforeMethod
-    void preConditionsMethod(){
-        new MainPage().openMainPage(new MainPageModel().mainPageURL());
+    void preConditionsMethod() throws IOException {
+        new MainPage().openHomePage();
 
     }
 

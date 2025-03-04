@@ -1,12 +1,13 @@
 package com.weatherapi.ui.tests;
 
-import com.weatherapi.ui.pageModels.MainPageModel;
 import com.weatherapi.ui.pages.MainPage;
 import com.weatherapi.ui.pages.TodayPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utils.ConfigurateBrowserSettings;
+
+import java.io.IOException;
 
 public class TodaysWeatherForecasTest {
     public final String textElementToday = "Today";
@@ -17,8 +18,8 @@ public class TodaysWeatherForecasTest {
     }
 
     @BeforeMethod
-    void preConditionsMethod(){
-        new MainPage().openMainPage(new MainPageModel().mainPageURL());
+    void preConditionsMethod() throws IOException {
+        new MainPage().openHomePage();
 
     }
 

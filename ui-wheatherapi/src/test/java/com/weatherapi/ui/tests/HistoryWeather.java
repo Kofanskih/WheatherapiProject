@@ -9,6 +9,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utils.ConfigurateBrowserSettings;
 
+import java.io.IOException;
+
 
 public class HistoryWeather {
     private final String textElementHistory = "History";
@@ -22,8 +24,8 @@ public class HistoryWeather {
     }
 
     @BeforeMethod
-    void preConditionsMethod(){
-        new MainPage().openMainPage(new MainPageModel().mainPageURL());
+    void preConditionsMethod() throws IOException {
+        new MainPage().openHomePage();
 
     }
 
