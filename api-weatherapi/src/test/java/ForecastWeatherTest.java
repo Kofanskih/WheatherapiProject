@@ -21,4 +21,5 @@ public class ForecastWeatherTest {
                 .then().statusCode(200)
                 .body("forecast.forecastday.day.avgtemp_c", notNullValue());
     }
+
 }
