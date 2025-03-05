@@ -27,11 +27,15 @@ public class BaseService {
     protected RequestSpecification baseConfigurationRestAssuredFut(String q, String apiKey, String data){
         RequestSpecification reqSpec = given()
                 .contentType(ContentType.JSON)
-                .baseUri(MAIN_URL).basePath(FUTURE_PATH).param(REQUIRED_Q, q).param(APIKEY, apiKey).param(REQUIRED_DATA, data)
+                .baseUri(MAIN_URL)
+                .basePath(FUTURE_PATH)
+                .params(REQUIRED_Q, q, APIKEY, apiKey, REQUIRED_DATA, data)
                 .when()
                 .filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
         return reqSpec;
 
     }
+
+
 
 }
