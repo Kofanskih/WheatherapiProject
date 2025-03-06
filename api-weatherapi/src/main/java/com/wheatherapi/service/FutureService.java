@@ -1,5 +1,6 @@
 package com.wheatherapi.service;
 
+import com.wheatherapi.AssertableResponse;
 import com.wheatherapi.models.queryParameters.FutureWeatherRequest.FutureWeatherQueryParams;
 import io.restassured.response.Response;
 
@@ -16,6 +17,14 @@ public class FutureService extends BaseService{
     public Response sendFutureRequest2(FutureWeatherQueryParams futureWeatherQueryParams){
         return baseConfigurationRestAssuredFut(futureWeatherQueryParams.getQ(), futureWeatherQueryParams.getKey(), futureWeatherQueryParams.getDt())
                 .get();
+
+    }
+
+    public AssertableResponse sendFutureRequest3(FutureWeatherQueryParams futureWeatherQueryParams){
+        Response response =  baseConfigurationRestAssuredFut(futureWeatherQueryParams.getQ(), futureWeatherQueryParams.getKey(), futureWeatherQueryParams.getDt())
+                .get().then().extract().response();
+
+        return new AssertableResponse(response);
 
     }
 

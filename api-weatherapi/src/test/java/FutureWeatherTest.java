@@ -6,6 +6,9 @@ import org.hamcrest.Matchers;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import static com.wheatherapi.conditions.Conditions.bodyField;
+import static com.wheatherapi.conditions.Conditions.statusCode;
+
 public class FutureWeatherTest {
 
     @Test
@@ -43,7 +46,42 @@ public class FutureWeatherTest {
 
     }
 
+    @Test
+    public void verifyLocationIsNull1(){
+        FutureWeatherQueryParams futureWeatherQueryParams = new FutureWeatherQueryParams();
+        futureWeatherQueryParams.setQ("Malaga");
+        futureWeatherQueryParams.setDt("2025-04-01");
+        futureWeatherQueryParams.setKey("ae34ceb905814b6bb0f215858252102");
+        new FutureService()
+                .sendFutureRequest3(futureWeatherQueryParams)
+                .shouldHave(statusCode(200))
+                .shouldHave(bodyField("forecast.forecastday.day.condition.text", Matchers.notNullValue()));
 
+    }
 
+    @Test
+    public void verifyLocationIsNull2(){
+        FutureWeatherQueryParams futureWeatherQueryParams = new FutureWeatherQueryParams();
+        futureWeatherQueryParams.setQ("Malaga");
+        futureWeatherQueryParams.setDt("2025-04-01");
+        futureWeatherQueryParams.setKey("ae34ceb905814b6bb0f215858252102");
+        new FutureService()
+                .sendFutureRequest3(futureWeatherQueryParams)
+                .shouldHave(statusCode(200),
+                        bodyField("forecast.forecastday.day.condition.text", Matchers.notNullValue()));
 
+    }
+
+    @Test
+    public void verifyLocationIsNull3(){
+        FutureWeatherQueryParams futureWeatherQueryParams = new FutureWeatherQueryParams();
+        futureWeatherQueryParams.setQ("Malaga");
+        futureWeatherQueryParams.setDt("2025-04-01");
+        futureWeatherQueryParams.setKey("ae34ceb905814b6bb0f215858252102");
+        FutureWeatherResponse futureWeatherResponse = new FutureService()
+                .sendFutureRequest3(futureWeatherQueryParams)
+                .shouldHave(statusCode(200)).responseAs(FutureWeatherResponse.class);
+
+        Assert.assertNotNull(futureWeatherResponse.getLocation().getName(), "Token is null");
+    }
 }
