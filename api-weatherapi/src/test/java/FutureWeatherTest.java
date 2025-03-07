@@ -6,6 +6,8 @@ import org.hamcrest.Matchers;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 import static com.wheatherapi.conditions.Conditions.bodyField;
 import static com.wheatherapi.conditions.Conditions.statusCode;
 
@@ -24,6 +26,15 @@ public class FutureWeatherTest {
     public void verifyDayConditionIsNotNull1(){
         new FutureService()
                 .sendFutureRequest("Malaga", "2025-04-01")
+                .then()
+                .statusCode(200)
+                .body("forecast.forecastday.day.condition.text", Matchers.notNullValue());
+    }
+
+    @Test
+    public void verifyDayConditionIsNotNull2() throws IOException {
+        new FutureService()
+                .sendFutureRequest4("Malaga", "2025-04-01", "api_key")
                 .then()
                 .statusCode(200)
                 .body("forecast.forecastday.day.condition.text", Matchers.notNullValue());
