@@ -9,6 +9,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utils.ConfigurateBrowserSettings;
 
+import java.io.IOException;
+
 public class LogoutTest {
     public final String loginButton = "Login";
 
@@ -18,16 +20,16 @@ public class LogoutTest {
     }
 
     @BeforeMethod
-    void userLogin() {
+    void userLogin() throws IOException {
         new MainPage()
-                .openMainPage(new MainPageModel().mainPageURL())
+                .openHomePage("main_url")
                 .goToLoginPage()
                 .fillLoginDataWithUserModel(new LoginUserPageModel().userLogin());
 
     }
 
     @Test
-    void userBookShopLogout() {
+    void userLogout() {
         new PersonalPage()
                 .logout()
                 .checkUserLogout(loginButton);

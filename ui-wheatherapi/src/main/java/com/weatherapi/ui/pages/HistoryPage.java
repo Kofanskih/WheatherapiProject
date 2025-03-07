@@ -10,7 +10,7 @@ import org.testng.Assert;
 import static com.codeborne.selenide.Selenide.*;
 
 public class HistoryPage {
-    private final SelenideElement historyButton = $("[class=\"p-2\"][title=\"Benidorm weather history\"]");
+    private final SelenideElement historyButton = $("[class=\"p-2\"][href=\"/history/q/benidorm-699566\"]");
     private final String historyURL = "https://www.weatherapi.com/history/q/benidorm-699566";
     private final SelenideElement historyElement = $("[class=\"p-2 h4\"][title=\"Benidorm weather history\"]");
     private final SelenideElement pressureThirdElementInTable = $x("//main//tbody/tr[7]/td[5][@style=\"background-color:#C6F56F;\"]");

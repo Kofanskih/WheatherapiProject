@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utils.ConfigurateBrowserSettings;
+import utils.OpenMainPage;
 
 import java.io.IOException;
 
@@ -22,7 +23,7 @@ public class LoginWeatherapiTest {
 
     @BeforeMethod
     void preConditionsMethod() throws IOException {
-        new MainPage().openHomePage();
+        new OpenMainPage().takeUrl("main_url");
 
     }
 

@@ -4,17 +4,14 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.weatherapi.ui.pageModels.MainPageModel;
+import utils.OpenMainPage;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
 public class MainPage {
-    private final SelenideElement loginPage = $("[href=\"/login.aspx\"]");
+    private final SelenideElement loginPage = $("[class=\"nav-link\"][href=\"/login.aspx\"]");
 
     public MainPage openMainPage(MainPageModel mainPageModel) {
         Selenide.open(mainPageModel.getMAIN_PAGE());
@@ -22,12 +19,9 @@ public class MainPage {
     }
 
 
-    public Properties openHomePage() throws IOException {
-        Properties props = new Properties();
-        InputStream input = new FileInputStream("src/main/resources/urls.properties");
-        props.load(input);
-        open(props.getProperty("main_url"));
-        return props;
+    public MainPage openHomePage(String keyProperty) throws IOException {
+        new OpenMainPage().takeUrl(keyProperty);
+        return new MainPage();
     }
 
     public LoginPage goToLoginPage(){

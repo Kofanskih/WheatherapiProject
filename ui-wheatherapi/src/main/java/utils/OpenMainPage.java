@@ -9,11 +9,18 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class OpenMainPage {
 
-    public Properties openHomePage() throws IOException {
+    public Properties readUrlProperties() throws IOException {
         Properties props = new Properties();
         InputStream input = new FileInputStream("src/main/resources/urls.properties");
         props.load(input);
-        open(props.getProperty("main_url"));
         return props;
     }
+
+
+    public void takeUrl(String keyProperty) throws IOException {
+        open(readUrlProperties().getProperty(keyProperty));
+
+    }
+
+
 }
