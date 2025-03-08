@@ -26,7 +26,7 @@ public class BaseService {
 
     }
 
-    protected RequestSpecification baseConfigurationRestAssuredFut(String q, String apiKey, String data) throws IOException {
+    protected RequestSpecification baseConfigurationRestAssuredFuture(String q, String apiKey, String data) throws IOException {
         RequestSpecification reqSpec = given()
                 .contentType(ContentType.JSON)
                 .baseUri(new GetMainURL().takeMainURL("main_url"))

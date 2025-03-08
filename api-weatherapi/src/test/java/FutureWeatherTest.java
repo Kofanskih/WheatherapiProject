@@ -14,18 +14,18 @@ import static com.wheatherapi.conditions.Conditions.statusCode;
 public class FutureWeatherTest {
 
     @Test
-    public void verifyDayConditionIsNotNull(){
+    public void verifyDayConditionIsNotNull() throws IOException {
         new FutureService()
-                .sendFutureRequest("Malaga", "2025-04-01")
+                .sendFutureRequest("Malaga", "2025-04-01", "api_key")
                 .then()
                 .statusCode(200)
                 .body("forecast.forecastday.day.condition.text", Matchers.notNullValue());
     }
 
     @Test
-    public void verifyDayConditionIsNotNull1(){
+    public void verifyDayConditionIsNotNull1() throws IOException {
         new FutureService()
-                .sendFutureRequest("Malaga", "2025-04-01")
+                .sendFutureRequest("Malaga", "2025-04-01", "api_key")
                 .then()
                 .statusCode(200)
                 .body("forecast.forecastday.day.condition.text", Matchers.notNullValue());
@@ -42,11 +42,11 @@ public class FutureWeatherTest {
 
 
     @Test
-    public void verifyLocationIsNull(){
+    public void verifyLocationIsNull() throws IOException {
         FutureWeatherQueryParams futureWeatherQueryParams = new FutureWeatherQueryParams();
         futureWeatherQueryParams.setQ("Malaga");
         futureWeatherQueryParams.setDt("2025-04-01");
-        futureWeatherQueryParams.setKey("ae34ceb905814b6bb0f215858252102");
+        futureWeatherQueryParams.setKey("076542489b7542299d1200203250703");
         new FutureService()
                 .sendFutureRequest2(futureWeatherQueryParams)
                 .then()
@@ -58,11 +58,11 @@ public class FutureWeatherTest {
     }
 
     @Test
-    public void verifyLocationIsNull1(){
+    public void verifyLocationIsNull1() throws IOException {
         FutureWeatherQueryParams futureWeatherQueryParams = new FutureWeatherQueryParams();
         futureWeatherQueryParams.setQ("Malaga");
         futureWeatherQueryParams.setDt("2025-04-01");
-        futureWeatherQueryParams.setKey("ae34ceb905814b6bb0f215858252102");
+        futureWeatherQueryParams.setKey("076542489b7542299d1200203250703");
         new FutureService()
                 .sendFutureRequest3(futureWeatherQueryParams)
                 .shouldHave(statusCode(200))
@@ -71,11 +71,11 @@ public class FutureWeatherTest {
     }
 
     @Test
-    public void verifyLocationIsNull2(){
+    public void verifyLocationIsNull2() throws IOException {
         FutureWeatherQueryParams futureWeatherQueryParams = new FutureWeatherQueryParams();
         futureWeatherQueryParams.setQ("Malaga");
         futureWeatherQueryParams.setDt("2025-04-01");
-        futureWeatherQueryParams.setKey("ae34ceb905814b6bb0f215858252102");
+        futureWeatherQueryParams.setKey("076542489b7542299d1200203250703");
         new FutureService()
                 .sendFutureRequest3(futureWeatherQueryParams)
                 .shouldHave(statusCode(200),
@@ -84,11 +84,11 @@ public class FutureWeatherTest {
     }
 
     @Test
-    public void verifyLocationIsNull3(){
+    public void verifyLocationIsNull3() throws IOException {
         FutureWeatherQueryParams futureWeatherQueryParams = new FutureWeatherQueryParams();
         futureWeatherQueryParams.setQ("Malaga");
         futureWeatherQueryParams.setDt("2025-04-01");
-        futureWeatherQueryParams.setKey("ae34ceb905814b6bb0f215858252102");
+        futureWeatherQueryParams.setKey("076542489b7542299d1200203250703");
         FutureWeatherResponse futureWeatherResponse = new FutureService()
                 .sendFutureRequest3(futureWeatherQueryParams)
                 .shouldHave(statusCode(200)).responseAs(FutureWeatherResponse.class);

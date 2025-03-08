@@ -9,22 +9,21 @@ import java.io.IOException;
 
 public class FutureService extends BaseService{
     private final String FUTURE_PATH = "/future.json?q=%s&dt=%s&key=%s";
-    private final String VALUE_APIKEY = "ae34ceb905814b6bb0f215858252102";
 
-    public Response sendFutureRequest(String City, String data){
+    public Response sendFutureRequest(String City, String data, String apiKey) throws IOException {
         return baseConfigurationRestAssured()
-                .get(String.format(FUTURE_PATH, City, data, VALUE_APIKEY));
+                .get(String.format(FUTURE_PATH, City, data, new GetApiKey().takeApiKey(apiKey)));
 
     }
 
-    public Response sendFutureRequest2(FutureWeatherQueryParams futureWeatherQueryParams){
-        return baseConfigurationRestAssuredFut(futureWeatherQueryParams.getQ(), futureWeatherQueryParams.getKey(), futureWeatherQueryParams.getDt())
+    public Response sendFutureRequest2(FutureWeatherQueryParams futureWeatherQueryParams) throws IOException {
+        return baseConfigurationRestAssuredFuture(futureWeatherQueryParams.getQ(), futureWeatherQueryParams.getKey(), futureWeatherQueryParams.getDt())
                 .get();
 
     }
 
-    public AssertableResponse sendFutureRequest3(FutureWeatherQueryParams futureWeatherQueryParams){
-        Response response =  baseConfigurationRestAssuredFut(futureWeatherQueryParams.getQ(), futureWeatherQueryParams.getKey(), futureWeatherQueryParams.getDt())
+    public AssertableResponse sendFutureRequest3(FutureWeatherQueryParams futureWeatherQueryParams) throws IOException {
+        Response response =  baseConfigurationRestAssuredFuture(futureWeatherQueryParams.getQ(), futureWeatherQueryParams.getKey(), futureWeatherQueryParams.getDt())
                 .get().then().extract().response();
 
         return new AssertableResponse(response);
