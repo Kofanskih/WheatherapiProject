@@ -16,7 +16,7 @@ public class FutureWeatherTest {
     @Test
     public void verifyDayConditionIsNotNull() throws IOException {
         new FutureService()
-                .sendFutureRequest("Malaga", "2025-04-01", "api_key")
+                .sendFutureRequest("future_path","Malaga", "2025-04-01", "api_key")
                 .then()
                 .statusCode(200)
                 .body("forecast.forecastday.day.condition.text", Matchers.notNullValue());
@@ -25,7 +25,7 @@ public class FutureWeatherTest {
     @Test
     public void verifyDayConditionIsNotNull1() throws IOException {
         new FutureService()
-                .sendFutureRequest("Malaga", "2025-04-01", "api_key")
+                .sendFutureRequest("future_path","Malaga", "2025-04-01", "api_key")
                 .then()
                 .statusCode(200)
                 .body("forecast.forecastday.day.condition.text", Matchers.notNullValue());

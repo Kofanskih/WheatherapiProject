@@ -4,15 +4,16 @@ import com.wheatherapi.AssertableResponse;
 import com.wheatherapi.models.queryParameters.FutureWeatherRequest.FutureWeatherQueryParams;
 import io.restassured.response.Response;
 import utils.GetApiKey;
+import utils.GetPath;
 
 import java.io.IOException;
 
 public class FutureService extends BaseService{
     private final String FUTURE_PATH = "/future.json?q=%s&dt=%s&key=%s";
 
-    public Response sendFutureRequest(String City, String data, String apiKey) throws IOException {
+    public Response sendFutureRequest(String path, String City, String data, String apiKey) throws IOException {
         return baseConfigurationRestAssured()
-                .get(String.format(FUTURE_PATH, City, data, new GetApiKey().takeApiKey(apiKey)));
+                .get(String.format(new GetPath().takePath(path), City, data, new GetApiKey().takeApiKey(apiKey)));
 
     }
 
