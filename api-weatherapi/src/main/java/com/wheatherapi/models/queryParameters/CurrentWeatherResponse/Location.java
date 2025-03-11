@@ -1,4 +1,4 @@
-package com.wheatherapi.models.queryParameters.current;
+package com.wheatherapi.models.queryParameters.CurrentWeatherResponse;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
