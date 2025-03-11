@@ -24,7 +24,7 @@ public class FutureService extends BaseService{
     }
 
     public AssertableResponse sendFutureRequest3(FutureWeatherQueryParams futureWeatherQueryParams) throws IOException {
-        Response response =  baseConfigurationRestAssuredFuture(futureWeatherQueryParams.getQ(), futureWeatherQueryParams.getKey(), futureWeatherQueryParams.getDt())
+        Response response = baseConfigurationRestAssuredFuture(futureWeatherQueryParams.getQ(), futureWeatherQueryParams.getKey(), futureWeatherQueryParams.getDt())
                 .get().then().extract().response();
 
         return new AssertableResponse(response);
