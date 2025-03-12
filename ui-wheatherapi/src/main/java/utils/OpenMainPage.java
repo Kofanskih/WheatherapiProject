@@ -1,5 +1,7 @@
 package utils;
 
+import com.codeborne.selenide.Selenide;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,8 +19,8 @@ public class OpenMainPage {
     }
 
 
-    public void takeUrl(String keyProperty) throws IOException {
-        open(readUrlProperties().getProperty(keyProperty));
+    public void open() throws IOException {
+        Selenide.open(readUrlProperties().getProperty("main_url"));
 
     }
 

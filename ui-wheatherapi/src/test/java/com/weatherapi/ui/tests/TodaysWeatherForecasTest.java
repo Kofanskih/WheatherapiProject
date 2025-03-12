@@ -1,6 +1,5 @@
 package com.weatherapi.ui.tests;
 
-import com.weatherapi.ui.pages.MainPage;
 import com.weatherapi.ui.pages.TodayPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -20,7 +19,7 @@ public class TodaysWeatherForecasTest {
 
     @BeforeMethod
     void preConditionsMethod() throws IOException {
-        new OpenMainPage().takeUrl("main_url");
+        new OpenMainPage().open();
 
     }
 

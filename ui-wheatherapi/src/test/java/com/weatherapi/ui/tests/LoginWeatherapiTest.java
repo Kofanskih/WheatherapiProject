@@ -23,7 +23,7 @@ public class LoginWeatherapiTest {
 
     @BeforeMethod
     void preConditionsMethod() throws IOException {
-        new OpenMainPage().takeUrl("main_url");
+        new OpenMainPage().open();
 
     }
 

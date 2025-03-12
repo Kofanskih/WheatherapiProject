@@ -13,14 +13,8 @@ import static com.codeborne.selenide.Selenide.$;
 public class MainPage {
     private final SelenideElement loginPage = $("[class=\"nav-link\"][href=\"/login.aspx\"]");
 
-    public MainPage openMainPage(MainPageModel mainPageModel) {
-        Selenide.open(mainPageModel.getMAIN_PAGE());
-        return this;
-    }
-
-
-    public MainPage openHomePage(String keyProperty) throws IOException {
-        new OpenMainPage().takeUrl(keyProperty);
+    public MainPage openMainPage() throws IOException {
+        new OpenMainPage().open();
         return new MainPage();
     }
 

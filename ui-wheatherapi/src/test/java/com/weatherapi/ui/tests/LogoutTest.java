@@ -22,7 +22,7 @@ public class LogoutTest {
     @BeforeMethod
     void userLogin() throws IOException {
         new MainPage()
-                .openHomePage("main_url")
+                .openMainPage()
                 .goToLoginPage()
                 .fillLoginDataWithUserModel(new LoginUserPageModel().userLogin());
 
