@@ -1,6 +1,5 @@
 import com.wheatherapi.models.queryParameters.FutureWeatherRequest.FutureWeatherQueryParams;
 import com.wheatherapi.models.queryParameters.FutureWeatherResponse.FutureWeatherResponse;
-import com.wheatherapi.models.queryParameters.FutureWeatherResponse.Location;
 import com.wheatherapi.service.FutureService;
 import org.hamcrest.Matchers;
 import org.testng.Assert;
@@ -22,23 +21,6 @@ public class FutureWeatherTest {
                 .body("forecast.forecastday.day.condition.text", Matchers.notNullValue());
     }
 
-    @Test
-    public void verifyDayConditionIsNotNull1() throws IOException {
-        new FutureService()
-                .sendFutureRequest("future_path","Malaga", "2025-04-01", "api_key")
-                .then()
-                .statusCode(200)
-                .body("forecast.forecastday.day.condition.text", Matchers.notNullValue());
-    }
-
-    @Test
-    public void verifyDayConditionIsNotNull2() throws IOException {
-        new FutureService()
-                .sendFutureRequest4("Malaga", "2025-04-01", "api_key")
-                .then()
-                .statusCode(200)
-                .body("forecast.forecastday.day.condition.text", Matchers.notNullValue());
-    }
 
 
     @Test
@@ -46,14 +28,14 @@ public class FutureWeatherTest {
         FutureWeatherQueryParams futureWeatherQueryParams = new FutureWeatherQueryParams();
         futureWeatherQueryParams.setQ("Malaga");
         futureWeatherQueryParams.setDt("2025-04-01");
-        futureWeatherQueryParams.setKey("076542489b7542299d1200203250703");
-        new FutureService()
-                .sendFutureRequest2(futureWeatherQueryParams)
+        FutureWeatherResponse futureWeatherResponse = new FutureService()
+                .sendFutureRequest2("future_path", futureWeatherQueryParams, "api_key")
                 .then()
                 .statusCode(200)
                 .extract()
                 .response()
-                .as(FutureWeatherQueryParams.class);
+                .as(FutureWeatherResponse.class);
+        Assert.assertNotNull(futureWeatherResponse.getLocation().getName(), "Token is null");
 
     }
 
@@ -94,5 +76,14 @@ public class FutureWeatherTest {
                 .shouldHave(statusCode(200)).responseAs(FutureWeatherResponse.class);
 
         Assert.assertNotNull(futureWeatherResponse.getLocation().getName(), "Token is null");
+    }
+
+    @Test
+    public void verifyDayConditionIsNotNull2() throws IOException {
+        new FutureService()
+                .sendFutureRequest4("Malaga", "2025-04-01", "api_key")
+                .then()
+                .statusCode(200)
+                .body("forecast.forecastday.day.condition.text", Matchers.notNullValue());
     }
 }
