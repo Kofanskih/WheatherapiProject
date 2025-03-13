@@ -14,7 +14,7 @@ import static org.hamcrest.Matchers.*;
 public class CurrentWeather {
 
     @Test
-    public void verifyCurrentCountryV2() throws IOException {
+    public void verifyCurrentCountry() throws IOException {
         new CurrentService().sendGetCurrentRequest("current_path","Madrid", "api_key")
                 .then().statusCode(200)
                 .body("location.country",containsString("Spain"));
@@ -41,9 +41,10 @@ public class CurrentWeather {
         CurrentWeatherQueryParams currentWeatherQueryParams = new CurrentWeatherQueryParams();
         currentWeatherQueryParams.setQ("Malaga");
         new CurrentService()
-                .sendCurrentRequest2("main_url", "current_path", currentWeatherQueryParams, "api_key")
+                .sendCurrentRequest2("current_path", currentWeatherQueryParams, "api_key")
                         .shouldHave(statusCode(200)).shouldHave(bodyField("location.name", notNullValue()));
     }
+
 
     @Test
     public void verifyCurrentLocationNameIsNotNull1() throws IOException {
@@ -51,7 +52,7 @@ public class CurrentWeather {
         currentWeatherQueryParams.setQ("Malaga");
         currentWeatherQueryParams.setKey(new GetApiKey().takeApiKey("api_key"));
         new CurrentService()
-                .sendCurrentRequest3("main_url", "current_path", currentWeatherQueryParams)
+                .sendCurrentRequest3("current_path", currentWeatherQueryParams)
                 .shouldHave(statusCode(200),bodyField("location.name", notNullValue()));
     }
 
@@ -62,7 +63,7 @@ public class CurrentWeather {
         currentWeatherQueryParams.setQ("Madrid");
         currentWeatherQueryParams.setKey(new GetApiKey().takeApiKey("api_key"));
         CurrentWeatherResponse currentWeatherResponse = new CurrentService()
-                .sendCurrentRequest3("main_url", "current_path", currentWeatherQueryParams)
+                .sendCurrentRequest3("current_path", currentWeatherQueryParams)
                 .shouldHave(statusCode(200)).responseAs(CurrentWeatherResponse.class);
 
         Assert.assertNotNull(currentWeatherResponse.getCurrent().getCondition().getCode(), "");
