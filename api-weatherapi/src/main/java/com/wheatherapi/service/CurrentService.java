@@ -11,23 +11,23 @@ import utils.GetPath;
 
 import java.io.IOException;
 
-
 public class CurrentService extends BaseService{
     private final String REQUIRED_Q = "q";
     private final String APIKEY = "key";
+    private final String CURRENT_PATH = "/current.json?q=%s&key=%s";
 
-    protected RequestSpecification baseConfigurationRestAssuredCurrent(String path, String q, String apiKey) throws IOException {
+    protected RequestSpecification baseConfigurationRestAssuredCurrent(String q, String apiKey) throws IOException {
         return baseConfigurationRestAssured()
-                .basePath(path)
+                .basePath(CURRENT_PATH)
                 .params(REQUIRED_Q, q, APIKEY, apiKey)
                 .when()
                 .filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
 
     }
 
-    public Response sendGetCurrentRequest(String path, String City, String apiKey) throws IOException {
+    public Response sendGetCurrentRequest(String City, String apiKey) throws IOException {
         return baseConfigurationRestAssured()
-                .get( String.format(new GetPath().takePath(path), City, new GetApiKey().takeApiKey(apiKey)));
+                .get(String.format(CURRENT_PATH, City, new GetApiKey().takeApiKey(apiKey)));
     }
 
     public Response sendCurrentRequest1(String path, CurrentWeatherQueryParams currentWeatherQueryParams, String apiKey) throws IOException {
@@ -38,16 +38,16 @@ public class CurrentService extends BaseService{
 
     public AssertableResponse sendCurrentRequest2(String path, CurrentWeatherQueryParams currentWeatherQueryParams, String apiKey) throws IOException {
         Response response = baseConfigurationRestAssured()
-                .basePath(new GetPath().takePath(path))
+                .basePath(CURRENT_PATH)
                 .params(REQUIRED_Q, currentWeatherQueryParams.getQ(), APIKEY, new GetApiKey().takeApiKey(apiKey))
                 .when()
                 .get().then().extract().response();
         return new AssertableResponse(response);
     }
 
-    public AssertableResponse sendCurrentRequest3( String path, CurrentWeatherQueryParams currentWeatherQueryParams) throws IOException {
+    public AssertableResponse sendCurrentRequest3(CurrentWeatherQueryParams currentWeatherQueryParams) throws IOException {
         Response response =
-                baseConfigurationRestAssuredCurrent(new GetPath().takePath(path), currentWeatherQueryParams.getQ(), currentWeatherQueryParams.getKey())
+                baseConfigurationRestAssuredCurrent(currentWeatherQueryParams.getQ(), currentWeatherQueryParams.getKey())
                         .get().then().extract().response();
         return new AssertableResponse(response);
     }
