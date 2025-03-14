@@ -6,9 +6,11 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class GetApiKey {
+    private final String API_KEY = "src/main/resources/key.properties";
+
     private Properties readApiKeys() throws IOException {
         Properties props = new Properties();
-        InputStream input = new FileInputStream("src/main/resources/key.properties");
+        InputStream input = new FileInputStream(API_KEY);
         props.load(input);
         return props;
     }

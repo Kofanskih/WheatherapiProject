@@ -6,9 +6,11 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class GetMainURL {
+    private final String MAIN_URL = "src/main/resources/urls.properties";
+
     private Properties readMainUrl() throws IOException {
         Properties props = new Properties();
-        InputStream input = new FileInputStream("src/main/resources/urls.properties");
+        InputStream input = new FileInputStream(MAIN_URL);
         props.load(input);
         return props;
     }
