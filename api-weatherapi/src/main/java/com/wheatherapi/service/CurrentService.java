@@ -36,7 +36,7 @@ public class CurrentService extends BaseService{
 
     }
 
-    public AssertableResponse sendCurrentRequest2(String path, CurrentWeatherQueryParams currentWeatherQueryParams, String apiKey) throws IOException {
+    public AssertableResponse sendCurrentRequest2(CurrentWeatherQueryParams currentWeatherQueryParams, String apiKey) throws IOException {
         Response response = baseConfigurationRestAssured()
                 .basePath(CURRENT_PATH)
                 .params(REQUIRED_Q, currentWeatherQueryParams.getQ(), APIKEY, new GetApiKey().takeApiKey(apiKey))

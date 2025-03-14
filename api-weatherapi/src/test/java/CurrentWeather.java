@@ -41,9 +41,10 @@ public class CurrentWeather {
         CurrentWeatherQueryParams currentWeatherQueryParams = new CurrentWeatherQueryParams();
         currentWeatherQueryParams.setQ("Malaga");
         new CurrentService()
-                .sendCurrentRequest2("current_path", currentWeatherQueryParams, "api_key")
+                .sendCurrentRequest2(currentWeatherQueryParams, "api_key")
                         .shouldHave(statusCode(200)).shouldHave(bodyField("location.name", notNullValue()));
     }
+
 
     @Test
     public void verifyCurrentLocationNameIsNotNull1() throws IOException {
@@ -54,6 +55,7 @@ public class CurrentWeather {
                 .sendCurrentRequest3(currentWeatherQueryParams)
                 .shouldHave(statusCode(200),bodyField("location.name", notNullValue()));
     }
+
 
     @Test
     public void verifyCurrentConditionCodeIsNotNyll() throws IOException {
