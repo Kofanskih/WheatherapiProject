@@ -15,14 +15,14 @@ public class CurrentWeather {
 
     @Test
     public void verifyCurrentCountry() throws IOException {
-        new CurrentService().sendGetCurrentRequest("Madrid", "api_key")
+        new CurrentService().sendGetCurrentRequest("Madrid")
                 .then().statusCode(200)
                 .body("location.country",containsString("Spain"));
     }
 
     @Test
     public void verifyCurrentConditionTextIsNotNull() throws IOException {
-        new CurrentService().sendGetCurrentRequest("Benidorm", "api_key")
+        new CurrentService().sendGetCurrentRequest("Benidorm")
                 .then().statusCode(200)
                 .body("current.condition.text", notNullValue());
     }

@@ -14,7 +14,7 @@ import java.io.IOException;
 public class CurrentService extends BaseService{
     private final String REQUIRED_Q = "q";
     private final String APIKEY = "key";
-    private final String CURRENT_PATH = "/current.json?q=%s&key=%s";
+    private final String CURRENT_PATH = "/current.json?q=%s";
 
     protected RequestSpecification baseConfigurationRestAssuredCurrent(String q, String apiKey) throws IOException {
         return baseConfigurationRestAssured()
@@ -25,9 +25,9 @@ public class CurrentService extends BaseService{
 
     }
 
-    public Response sendGetCurrentRequest(String City, String apiKey) throws IOException {
+    public Response sendGetCurrentRequest(String City) throws IOException {
         return baseConfigurationRestAssured()
-                .get(String.format(CURRENT_PATH, City, new GetApiKey().takeApiKey(apiKey)));
+                .get(String.format(CURRENT_PATH, City));
     }
 
     public Response sendCurrentRequest1(String path, CurrentWeatherQueryParams currentWeatherQueryParams, String apiKey) throws IOException {
