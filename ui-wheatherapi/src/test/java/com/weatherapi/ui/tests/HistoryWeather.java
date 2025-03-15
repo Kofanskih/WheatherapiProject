@@ -1,14 +1,18 @@
 package com.weatherapi.ui.tests;
 
+import com.codeborne.selenide.Selenide;
 import com.weatherapi.ui.pages.HistoryPage;
 
+import com.weatherapi.ui.pages.MainPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utils.ConfigurateBrowserSettings;
-import utils.OpenMainPage;
+import utils.ReadPropertyURL;
 
 import java.io.IOException;
+
+import static utils.ReadPropertyURL.getMainUrlProperty;
 
 
 public class HistoryWeather {
@@ -24,7 +28,7 @@ public class HistoryWeather {
 
     @BeforeMethod
     void preConditionsMethod() throws IOException {
-        new OpenMainPage().open();
+        new MainPage().open();
 
     }
 

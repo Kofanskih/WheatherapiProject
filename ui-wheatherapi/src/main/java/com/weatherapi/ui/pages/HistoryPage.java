@@ -15,8 +15,8 @@ public class HistoryPage {
     private final SelenideElement historyElement = $("[class=\"p-2 h4\"][title=\"Benidorm weather history\"]");
     private final SelenideElement pressureThirdElementInTable = $x("//main//tbody/tr[7]/td[5][@style=\"background-color:#C6F56F;\"]");
     private final ElementsCollection tableWeatherIn = $$(By.tagName("td"));
-    private final String windElementInTheTableWeatherIn = tableWeatherIn.get(22).getText();
-    private final String hourElementInTheTableAnnualWeatherAverages = tableWeatherIn.get(115).getText();
+    private final SelenideElement windElementInTheTableWeatherIn = tableWeatherIn.get(22);
+    private final SelenideElement hourElementInTheTableAnnualWeatherAverages = tableWeatherIn.get(115);
 
 
 
@@ -41,12 +41,14 @@ public class HistoryPage {
     }
 
     public HistoryPage checkWindElementInHistoryTable(String windElement){
-        Assert.assertTrue(windElementInTheTableWeatherIn.endsWith(windElement));
+        String actual = windElementInTheTableWeatherIn.getText();
+        Assert.assertTrue(actual.endsWith(windElement));
         return this;
     }
 
     public HistoryPage checkHoursElementInHistoryTable(String hourElement){
-        Assert.assertTrue(hourElementInTheTableAnnualWeatherAverages.endsWith(hourElement));
+        String actual = hourElementInTheTableAnnualWeatherAverages.getText();
+        Assert.assertTrue(actual.endsWith(hourElement));
         return this;
     }
 

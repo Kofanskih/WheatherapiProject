@@ -21,7 +21,7 @@ public class TomorrowWeather {
 
     @BeforeMethod
     void preConditionsMethod() throws IOException {
-        new MainPage().openMainPage();
+        new MainPage().open();
 
     }
 

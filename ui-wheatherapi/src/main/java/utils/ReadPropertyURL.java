@@ -7,11 +7,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import static com.codeborne.selenide.Selenide.open;
 
-public class OpenMainPage {
+public class ReadPropertyURL {
 
-    public Properties readUrlProperties() throws IOException {
+    private static Properties readUrlProperties() throws IOException {
         Properties props = new Properties();
         InputStream input = new FileInputStream("src/main/resources/urls.properties");
         props.load(input);
@@ -19,8 +18,8 @@ public class OpenMainPage {
     }
 
 
-    public void open() throws IOException {
-        Selenide.open(readUrlProperties().getProperty("main_url"));
+    public static String getMainUrlProperty() throws IOException {
+       return readUrlProperties().getProperty("main_url");
 
     }
 
