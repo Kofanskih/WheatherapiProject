@@ -1,5 +1,3 @@
 .idea/
-ui-wheatherapi/build/
-ui-wheatherapi/target/
-api-wheatherapi/build/
-api-wheatherapi/target/
+build/
+target/
