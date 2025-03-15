@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>ui-wheatherapi</module>
+        <module>api-weatherapi</module>
     </modules>
 
     <properties>
