@@ -16,14 +16,14 @@ public class CurrentService extends BaseService{
     private final String APIKEY = "key";
     private final String CURRENT_PATH = "/current.json?q=%s";
 
-    protected RequestSpecification baseConfigurationRestAssuredCurrent(String q, String apiKey) throws IOException {
-        return baseConfigurationRestAssured()
-                .basePath(CURRENT_PATH)
-                .params(REQUIRED_Q, q, APIKEY, apiKey)
-                .when()
-                .filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
-
-    }
+//    protected RequestSpecification baseConfigurationRestAssuredCurrent(String q, String apiKey) throws IOException {
+//        return baseConfigurationRestAssured()
+//                //.basePath(CURRENT_PATH)
+//                .params(REQUIRED_Q, q, APIKEY, apiKey)
+//                .when()
+//                .filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
+//
+//    }
 
     public Response sendGetCurrentRequest(String City) throws IOException {
         return baseConfigurationRestAssured()
@@ -47,8 +47,8 @@ public class CurrentService extends BaseService{
 
     public AssertableResponse sendCurrentRequest3(CurrentWeatherQueryParams currentWeatherQueryParams) throws IOException {
         Response response =
-                baseConfigurationRestAssuredCurrent(currentWeatherQueryParams.getQ(), currentWeatherQueryParams.getKey())
-                        .get().then().extract().response();
+                baseConfigurationRestAssured().queryParam(REQUIRED_Q,currentWeatherQueryParams.getQ())
+                        .get(CURRENT_PATH).then().extract().response();
         return new AssertableResponse(response);
     }
 

@@ -50,7 +50,7 @@ public class CurrentWeather {
     public void verifyCurrentLocationNameIsNotNull1() throws IOException {
         CurrentWeatherQueryParams currentWeatherQueryParams = new CurrentWeatherQueryParams();
         currentWeatherQueryParams.setQ("Malaga");
-        currentWeatherQueryParams.setKey(new GetApiKey().takeApiKey("api_key"));
+        //currentWeatherQueryParams.setKey(new GetApiKey().takeApiKey("api_key"));
         new CurrentService()
                 .sendCurrentRequest3(currentWeatherQueryParams)
                 .shouldHave(statusCode(200),bodyField("location.name", notNullValue()));
@@ -67,5 +67,5 @@ public class CurrentWeather {
                 .shouldHave(statusCode(200)).responseAs(CurrentWeatherResponse.class);
 
         Assert.assertNotNull(currentWeatherResponse.getCurrent().getCondition().getCode(), "");
-    }
+}
 }

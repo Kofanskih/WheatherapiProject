@@ -7,13 +7,7 @@ import lombok.Getter;
 public class Current{
 
     @JsonProperty("feelslike_c")
-    private Integer feelslikeC;
-
-    @JsonProperty("uv")
-    private Integer uv;
-
-    @JsonProperty("last_updated")
-    private String lastUpdated;
+    private Object feelslikeC;
 
     @JsonProperty("feelslike_f")
     private Object feelslikeF;
@@ -21,38 +15,20 @@ public class Current{
     @JsonProperty("wind_degree")
     private Integer windDegree;
 
+    @JsonProperty("windchill_f")
+    private Object windchillF;
+
+    @JsonProperty("windchill_c")
+    private Object windchillC;
+
     @JsonProperty("last_updated_epoch")
     private Integer lastUpdatedEpoch;
-
-    @JsonProperty("is_day")
-    private Integer isDay;
-
-    @JsonProperty("precip_in")
-    private Integer precipIn;
-
-    @JsonProperty("air_quality")
-    private AirQuality airQuality;
-
-    @JsonProperty("wind_dir")
-    private String windDir;
-
-    @JsonProperty("gust_mph")
-    private Object gustMph;
 
     @JsonProperty("temp_c")
     private Object tempC;
 
-    @JsonProperty("pressure_in")
-    private Object pressureIn;
-
-    @JsonProperty("gust_kph")
-    private Object gustKph;
-
     @JsonProperty("temp_f")
     private Object tempF;
-
-    @JsonProperty("precip_mm")
-    private Integer precipMm;
 
     @JsonProperty("cloud")
     private Integer cloud;
@@ -60,21 +36,60 @@ public class Current{
     @JsonProperty("wind_kph")
     private Object windKph;
 
-    @JsonProperty("condition")
-    private Condition condition;
-
     @JsonProperty("wind_mph")
     private Object windMph;
-
-    @JsonProperty("vis_km")
-    private Integer visKm;
 
     @JsonProperty("humidity")
     private Integer humidity;
 
+    @JsonProperty("dewpoint_f")
+    private Object dewpointF;
+
+    @JsonProperty("uv")
+    private Object uv;
+
+    @JsonProperty("last_updated")
+    private String lastUpdated;
+
+    @JsonProperty("heatindex_f")
+    private Object heatindexF;
+
+    @JsonProperty("dewpoint_c")
+    private Object dewpointC;
+
+    @JsonProperty("is_day")
+    private Integer isDay;
+
+    @JsonProperty("precip_in")
+    private Object precipIn;
+
+    @JsonProperty("heatindex_c")
+    private Object heatindexC;
+
+    @JsonProperty("wind_dir")
+    private String windDir;
+
+    @JsonProperty("gust_mph")
+    private Object gustMph;
+
+    @JsonProperty("pressure_in")
+    private Object pressureIn;
+
+    @JsonProperty("gust_kph")
+    private Object gustKph;
+
+    @JsonProperty("precip_mm")
+    private Object precipMm;
+
+    @JsonProperty("condition")
+    private Condition condition;
+
+    @JsonProperty("vis_km")
+    private Object visKm;
+
     @JsonProperty("pressure_mb")
-    private Integer pressureMb;
+    private Object pressureMb;
 
     @JsonProperty("vis_miles")
-    private Integer visMiles;
+    private Object visMiles;
 }
