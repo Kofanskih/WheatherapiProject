@@ -31,7 +31,7 @@ public class CurrentWeather {
         CurrentWeatherQueryParams currentWeatherQueryParams = new CurrentWeatherQueryParams();
         currentWeatherQueryParams.setQ("Benidorm");
         new CurrentService()
-                .sendCurrentRequest1("current_path", currentWeatherQueryParams, "api_key")
+                .sendCurrentRequest1("current_path", currentWeatherQueryParams)
                 .then().statusCode(200).body("current.condition.text", notNullValue());
     }
 

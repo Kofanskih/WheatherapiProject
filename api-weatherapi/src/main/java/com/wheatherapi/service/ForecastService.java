@@ -17,13 +17,13 @@ public class ForecastService extends BaseService{
     private final String DAYS = "days";
     private final String APIKEY = "key";
 
-    public RequestSpecification baseConfigurationRestAssuredForecast(String q, int days, String apiKey) throws IOException {
-        return baseConfigurationRestAssured()
-                .basePath(FORECAST_PATH)
-                .params(REQUIRED_Q, q, DAYS, days, APIKEY, apiKey)
-                .when()
-                .filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
-    }
+//    public RequestSpecification baseConfigurationRestAssuredForecast(String q, int days, String apiKey) throws IOException {
+//        return baseConfigurationRestAssured()
+//                .basePath(FORECAST_PATH)
+//                .params(REQUIRED_Q, q, DAYS, days, APIKEY, apiKey)
+//                .when()
+//                .filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
+//    }
 
 
     public Response sendForecastRequest(String path, String City, int countDays, String apiKey) throws IOException {
@@ -55,8 +55,8 @@ public class ForecastService extends BaseService{
     }
 
     public AssertableResponse sendForecastRequest4(ForecastWeatherQueryParams forecastWeatherQueryParams) throws IOException{
-        Response response = baseConfigurationRestAssuredForecast(forecastWeatherQueryParams.getQ(),forecastWeatherQueryParams.getDays(), forecastWeatherQueryParams.getKey())
-                .get().then().extract().response();
+        Response response = baseConfigurationRestAssured().queryParams(REQUIRED_Q, forecastWeatherQueryParams.getQ(), forecastWeatherQueryParams.getDays(), forecastWeatherQueryParams.getKey())
+                .get(FORECAST_PATH).then().extract().response();
         return new AssertableResponse(response);
 
     }

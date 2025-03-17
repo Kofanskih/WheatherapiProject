@@ -20,9 +20,9 @@ public class CurrentService extends BaseService{
                 .get(String.format(CURRENT_PATH, City));
     }
 
-    public Response sendCurrentRequest1(String path, CurrentWeatherQueryParams currentWeatherQueryParams, String apiKey) throws IOException {
+    public Response sendCurrentRequest1(String path, CurrentWeatherQueryParams currentWeatherQueryParams) throws IOException {
         return baseConfigurationRestAssured()
-                .get(String.format(new GetPath().takePath(path), currentWeatherQueryParams.getQ(), new GetApiKey().takeApiKey(apiKey)));
+                .get(String.format(new GetPath().takePath(path), currentWeatherQueryParams.getQ()));
 
     }
 
