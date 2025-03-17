@@ -9,10 +9,11 @@ import java.util.Properties;
 
 
 public class ReadPropertyURL {
+    private static final String MAIN_URL = "src/main/resources/urls.properties";
 
     private static Properties readUrlProperties() throws IOException {
         Properties props = new Properties();
-        InputStream input = new FileInputStream("src/main/resources/urls.properties");
+        InputStream input = new FileInputStream(MAIN_URL);
         props.load(input);
         return props;
     }
