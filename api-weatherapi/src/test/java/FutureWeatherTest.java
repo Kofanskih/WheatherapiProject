@@ -15,7 +15,7 @@ public class FutureWeatherTest {
     @Test
     public void verifyDayConditionIsNotNull() throws IOException {
         new FutureService()
-                .sendFutureRequest("future_path","Malaga", "2025-04-01", "api_key")
+                .sendFutureRequest("future_path","Malaga", "2025-04-01")
                 .then()
                 .statusCode(200)
                 .body("forecast.forecastday.day.condition.text", Matchers.notNullValue());
@@ -29,7 +29,7 @@ public class FutureWeatherTest {
         futureWeatherQueryParams.setQ("Malaga");
         futureWeatherQueryParams.setDt("2025-04-01");
         FutureWeatherResponse futureWeatherResponse = new FutureService()
-                .sendFutureRequest2("future_path", futureWeatherQueryParams, "api_key")
+                .sendFutureRequest2("future_path", futureWeatherQueryParams)
                 .then()
                 .statusCode(200)
                 .extract()
@@ -44,7 +44,6 @@ public class FutureWeatherTest {
         FutureWeatherQueryParams futureWeatherQueryParams = new FutureWeatherQueryParams();
         futureWeatherQueryParams.setQ("Malaga");
         futureWeatherQueryParams.setDt("2025-04-01");
-        futureWeatherQueryParams.setKey("076542489b7542299d1200203250703");
         new FutureService()
                 .sendFutureRequest3(futureWeatherQueryParams)
                 .shouldHave(statusCode(200))
@@ -57,7 +56,6 @@ public class FutureWeatherTest {
         FutureWeatherQueryParams futureWeatherQueryParams = new FutureWeatherQueryParams();
         futureWeatherQueryParams.setQ("Malaga");
         futureWeatherQueryParams.setDt("2025-04-01");
-        futureWeatherQueryParams.setKey("076542489b7542299d1200203250703");
         new FutureService()
                 .sendFutureRequest3(futureWeatherQueryParams)
                 .shouldHave(statusCode(200),
@@ -70,7 +68,6 @@ public class FutureWeatherTest {
         FutureWeatherQueryParams futureWeatherQueryParams = new FutureWeatherQueryParams();
         futureWeatherQueryParams.setQ("Malaga");
         futureWeatherQueryParams.setDt("2025-04-01");
-        futureWeatherQueryParams.setKey("076542489b7542299d1200203250703");
         FutureWeatherResponse futureWeatherResponse = new FutureService()
                 .sendFutureRequest3(futureWeatherQueryParams)
                 .shouldHave(statusCode(200)).responseAs(FutureWeatherResponse.class);
@@ -81,7 +78,7 @@ public class FutureWeatherTest {
     @Test
     public void verifyDayConditionIsNotNull2() throws IOException {
         new FutureService()
-                .sendFutureRequest4("Malaga", "2025-04-01", "api_key")
+                .sendFutureRequest4("Malaga", "2025-04-01")
                 .then()
                 .statusCode(200)
                 .body("forecast.forecastday.day.condition.text", Matchers.notNullValue());
