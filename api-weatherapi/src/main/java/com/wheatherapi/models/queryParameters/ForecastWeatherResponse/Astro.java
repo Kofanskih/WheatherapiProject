@@ -10,7 +10,7 @@ public class Astro{
     private String moonset;
 
     @JsonProperty("moon_illumination")
-    private String moonIllumination;
+    private Integer moonIllumination;
 
     @JsonProperty("sunrise")
     private String sunrise;
@@ -20,6 +20,12 @@ public class Astro{
 
     @JsonProperty("sunset")
     private String sunset;
+
+    @JsonProperty("is_moon_up")
+    private Integer isMoonUp;
+
+    @JsonProperty("is_sun_up")
+    private Integer isSunUp;
 
     @JsonProperty("moonrise")
     private String moonrise;

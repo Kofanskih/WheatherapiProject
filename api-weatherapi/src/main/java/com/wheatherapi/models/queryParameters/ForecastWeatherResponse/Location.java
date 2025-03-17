@@ -29,4 +29,5 @@ public class Location{
 
     @JsonProperty("tz_id")
     private String tzId;
+
 }

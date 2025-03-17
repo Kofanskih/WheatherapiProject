@@ -2,11 +2,7 @@ package com.wheatherapi.service;
 
 import com.wheatherapi.AssertableResponse;
 import com.wheatherapi.models.queryParameters.CurrentWeatherRequest.CurrentWeatherQueryParams;
-import io.restassured.filter.log.RequestLoggingFilter;
-import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
-import utils.GetApiKey;
 import utils.GetPath;
 
 import java.io.IOException;

@@ -21,4 +21,5 @@ public class ForecastdayItem{
 
     @JsonProperty("day")
     private Day day;
+
 }

@@ -77,4 +77,23 @@ public class Current{
 
     @JsonProperty("vis_miles")
     private Integer visMiles;
+
+    @JsonProperty("windchill_f")
+    private Object windchillF;
+
+    @JsonProperty("windchill_c")
+    private Object windchillC;
+
+    @JsonProperty("dewpoint_f")
+    private Object dewpointF;
+
+    @JsonProperty("heatindex_f")
+    private Object heatindexF;
+
+    @JsonProperty("dewpoint_c")
+    private Object dewpointC;
+
+    @JsonProperty("heatindex_c")
+    private Object heatindexC;
+
 }

@@ -104,4 +104,8 @@ public class HourItem{
 
     @JsonProperty("vis_miles")
     private Integer visMiles;
+
+    @JsonProperty("snow_cm")
+    private Object snowCm;
+
 }
