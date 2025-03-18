@@ -62,4 +62,8 @@ public class Day{
 
     @JsonProperty("daily_will_it_snow")
     private Integer dailyWillItSnow;
+
+    @JsonProperty("totalsnow_cm")
+    private Object totalsnowCm;
+
 }

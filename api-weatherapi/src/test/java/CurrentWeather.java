@@ -3,7 +3,6 @@ import com.wheatherapi.models.queryParameters.CurrentWeatherResponse.CurrentWeat
 import com.wheatherapi.service.CurrentService;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.GetApiKey;
 
 import java.io.IOException;
 
@@ -32,7 +31,7 @@ public class CurrentWeather {
         CurrentWeatherQueryParams currentWeatherQueryParams = new CurrentWeatherQueryParams();
         currentWeatherQueryParams.setQ("Benidorm");
         new CurrentService()
-                .sendCurrentRequest1("current_path", currentWeatherQueryParams, "api_key")
+                .sendCurrentRequest1("current_path", currentWeatherQueryParams)
                 .then().statusCode(200).body("current.condition.text", notNullValue());
     }
 
@@ -41,7 +40,7 @@ public class CurrentWeather {
         CurrentWeatherQueryParams currentWeatherQueryParams = new CurrentWeatherQueryParams();
         currentWeatherQueryParams.setQ("Malaga");
         new CurrentService()
-                .sendCurrentRequest2(currentWeatherQueryParams, "api_key")
+                .sendCurrentRequest2(currentWeatherQueryParams)
                         .shouldHave(statusCode(200)).shouldHave(bodyField("location.name", notNullValue()));
     }
 
@@ -50,7 +49,6 @@ public class CurrentWeather {
     public void verifyCurrentLocationNameIsNotNull1() throws IOException {
         CurrentWeatherQueryParams currentWeatherQueryParams = new CurrentWeatherQueryParams();
         currentWeatherQueryParams.setQ("Malaga");
-        //currentWeatherQueryParams.setKey(new GetApiKey().takeApiKey("api_key"));
         new CurrentService()
                 .sendCurrentRequest3(currentWeatherQueryParams)
                 .shouldHave(statusCode(200),bodyField("location.name", notNullValue()));
@@ -61,11 +59,10 @@ public class CurrentWeather {
     public void verifyCurrentConditionCodeIsNotNyll() throws IOException {
         CurrentWeatherQueryParams currentWeatherQueryParams = new CurrentWeatherQueryParams();
         currentWeatherQueryParams.setQ("Madrid");
-        currentWeatherQueryParams.setKey(new GetApiKey().takeApiKey("api_key"));
         CurrentWeatherResponse currentWeatherResponse = new CurrentService()
                 .sendCurrentRequest3(currentWeatherQueryParams)
                 .shouldHave(statusCode(200)).responseAs(CurrentWeatherResponse.class);
 
-        Assert.assertNotNull(currentWeatherResponse.getCurrent().getCondition().getCode(), "");
-}
+        Assert.assertNotNull(currentWeatherResponse.getCurrent().getCondition().getCode(), "1009");
+    }
 }
