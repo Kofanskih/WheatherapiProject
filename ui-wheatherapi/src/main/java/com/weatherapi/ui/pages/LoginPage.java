@@ -11,7 +11,7 @@ public class LoginPage {
     private final SelenideElement emailField = $("[id=\"ctl00_MainContentHolder_Login1_UserName\"]");
     private final SelenideElement passwordField = $("[id=\"ctl00_MainContentHolder_Login1_Password\"]");
     private final SelenideElement loginButton = $("[id=\"ctl00_MainContentHolder_Login1_LoginButton\"]");
-    private final SelenideElement warningMessageElement = $x("//span[@id=\"ctl00_MainContentHolder_Login1_FailureText\"]");
+    private final SelenideElement warningMessageElement = $("[id=\"ctl00_MainContentHolder_Login1_FailureText\"]");
 
     public PersonalPage fillLoginDataWithUserModel(LoginUserPageModel loginUserPageModel) {
         emailField.setValue(loginUserPageModel.getUSER_EMAIL());
