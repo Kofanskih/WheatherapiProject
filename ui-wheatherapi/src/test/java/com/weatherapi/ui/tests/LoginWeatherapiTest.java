@@ -37,6 +37,15 @@ public class LoginWeatherapiTest {
     }
 
     @Test
+    void userLogin1() {
+        new MainPage()
+                .goToLoginPage()
+                .fillLoginDataWithUserModel(new LoginUserPageModel().userLoginWithWrongPassword());
+        new PersonalPage().userShouldHaveExactTextOnTheAccountPage(personalAccountText);
+
+    }
+
+    @Test
     void userLoginWithWrongEmail(){
         new MainPage()
                 .goToLoginPage()
