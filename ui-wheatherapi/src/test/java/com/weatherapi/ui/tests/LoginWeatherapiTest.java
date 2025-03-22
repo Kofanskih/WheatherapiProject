@@ -41,7 +41,7 @@ public class LoginWeatherapiTest {
         new MainPage()
                 .goToLoginPage()
                 .fillLoginDataWithUserModel(new LoginUserPageModel().userLoginWithWrongPassword());
-        new PersonalPage().userShouldHaveExactTextOnTheAccountPage(personalAccountText);
+        new LoginPage().checkWarningLoginMessage(WARNING_MESSAGE);
 
     }
 

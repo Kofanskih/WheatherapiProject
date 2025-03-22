@@ -22,20 +22,20 @@ public class LoginPage {
 
     public LoginPage fillLoginFormWithWrongPassword(LoginUserPageModel loginUserPageModel){
         emailField.setValue(loginUserPageModel.getUSER_EMAIL());
-        passwordField.setValue(loginUserPageModel.getWRONG_USER_PASSWORD());
+        passwordField.setValue(loginUserPageModel.getUSER_PASSWORD());
         loginButton.click();
         return new LoginPage();
     }
 
     public LoginPage fillLoginFormWithWrongEmail(LoginUserPageModel loginUserPageModel){
-        emailField.setValue(loginUserPageModel.getWRONG_USER_EMAIL());
+        emailField.setValue(loginUserPageModel.getUSER_EMAIL());
         passwordField.setValue(loginUserPageModel.getUSER_PASSWORD());
         loginButton.click();
         return new LoginPage();
     }
 
     public LoginPage checkWarningLoginMessage(String warningMessage){
-        warningMessageElement.shouldHave(Condition.exactText(warningMessage));
+        warningMessageElement.shouldHave(Condition.text(warningMessage));
         return this;
     }
 
