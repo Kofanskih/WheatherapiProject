@@ -1,5 +1,6 @@
 package com.weatherapi.ui.tests;
 
+import com.codeborne.selenide.Selenide;
 import com.weatherapi.ui.pageModels.LoginUserPageModel;
 import com.weatherapi.ui.pages.LoginPage;
 import com.weatherapi.ui.pages.MainPage;
@@ -18,7 +19,7 @@ public class LoginWeatherapiTest {
 
     @BeforeClass
     void preConditionsClass() {
-        new ConfigurateBrowserSettings().setUp();
+        new ConfigurateBrowserSettings().setUpRemoteBrowser();
     }
 
     @BeforeMethod
@@ -33,6 +34,7 @@ public class LoginWeatherapiTest {
                 .goToLoginPage()
                 .fillLoginDataWithUserModel(new LoginUserPageModel().userLogin());
         new PersonalPage().userShouldHaveExactTextOnTheAccountPage(personalAccountText);
+        Selenide.sleep(5000);
 
     }
 
@@ -42,6 +44,7 @@ public class LoginWeatherapiTest {
                 .goToLoginPage()
                 .fillLoginDataWithUserModel(new LoginUserPageModel().userLoginWithWrongPassword());
         new LoginPage().checkWarningLoginMessage(WARNING_MESSAGE);
+        Selenide.sleep(5000);
 
     }
 
@@ -51,6 +54,7 @@ public class LoginWeatherapiTest {
                 .goToLoginPage()
                 .fillLoginFormWithWrongEmail(new LoginUserPageModel().userLoginWithWrongEmail());
         new LoginPage().checkWarningLoginMessage(WARNING_MESSAGE);
+        Selenide.sleep(5000);
 
     }
 
@@ -60,6 +64,7 @@ public class LoginWeatherapiTest {
                 .goToLoginPage()
                 .fillLoginFormWithWrongPassword(new LoginUserPageModel().userLoginWithWrongPassword());
         new LoginPage().checkWarningLoginMessage(WARNING_MESSAGE);
+        Selenide.sleep(5000);
 
     }
 }
