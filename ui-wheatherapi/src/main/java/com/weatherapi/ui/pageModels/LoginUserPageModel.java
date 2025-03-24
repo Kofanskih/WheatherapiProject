@@ -6,8 +6,6 @@ import lombok.Data;
 public class LoginUserPageModel {
     private String USER_EMAIL;
     private String USER_PASSWORD;
-//    private String WRONG_USER_EMAIL;
-//    private String WRONG_USER_PASSWORD;
 
     public LoginUserPageModel userLogin(){
         this.USER_EMAIL = "kofanskih08@gmail.com";

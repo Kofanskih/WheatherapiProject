@@ -39,7 +39,7 @@ public class LoginWeatherapiTest {
     }
 
     @Test
-    void userLogin1() {
+    void userLoginWithWrongPassword() {
         new MainPage()
                 .goToLoginPage()
                 .fillLoginDataWithUserModel(new LoginUserPageModel().userLoginWithWrongPassword());
@@ -52,19 +52,10 @@ public class LoginWeatherapiTest {
     void userLoginWithWrongEmail(){
         new MainPage()
                 .goToLoginPage()
-                .fillLoginFormWithWrongEmail(new LoginUserPageModel().userLoginWithWrongEmail());
+                .fillLoginDataWithUserModel(new LoginUserPageModel().userLoginWithWrongEmail());
         new LoginPage().checkWarningLoginMessage(WARNING_MESSAGE);
         Selenide.sleep(5000);
 
     }
 
-    @Test
-    void userLoginWithWrongPassword(){
-        new MainPage()
-                .goToLoginPage()
-                .fillLoginFormWithWrongPassword(new LoginUserPageModel().userLoginWithWrongPassword());
-        new LoginPage().checkWarningLoginMessage(WARNING_MESSAGE);
-        Selenide.sleep(5000);
-
-    }
 }
