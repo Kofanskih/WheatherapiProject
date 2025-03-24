@@ -20,6 +20,13 @@ public class CurrentWeather {
     }
 
     @Test
+    public void verifyCurrentCountry01() throws IOException {
+        new CurrentService().sendGetCurrentRequest01("Madrid")
+                .then().statusCode(200)
+                .body("location.country",containsString("Spain"));
+    }
+
+    @Test
     public void verifyCurrentConditionTextIsNotNull() throws IOException {
         new CurrentService().sendGetCurrentRequest("Benidorm")
                 .then().statusCode(200)
