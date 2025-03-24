@@ -8,4 +8,10 @@ public class OwnerReadUrl {
         String main_url = ownerConfig.mainUrl();
         return main_url;
     }
+
+
+
+    public static String ownerRemoteUrl(){
+        return ConfigFactory.create(OwnerConfig.class).remoteUrl();
+    }
 }
