@@ -18,6 +18,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 
+import static com.wheatherapi.encryption.Encryption.keyGeneration;
 import static io.restassured.RestAssured.given;
 import static utils.GetMainURL.takeMainURL;
 
@@ -36,11 +37,10 @@ public class BaseService {
 
 
     protected RequestSpecification baseConfigurationRestAssured1() throws IOException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        SecretKey secretKey = Encryption.keyGeneration();
         RequestSpecification reqSpec = given()
                 .contentType(ContentType.JSON)
                 .baseUri(takeMainURL())
-                .queryParam("key", Encryption.decryptApi(secretKey, System.getenv("encryptedApi")))
+                .queryParam("key", Encryption.decryptApi(keyGeneration(), System.getenv("encodedApi")))
                 .when()
                 .filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
         return reqSpec;
