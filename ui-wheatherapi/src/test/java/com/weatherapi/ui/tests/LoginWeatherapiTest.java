@@ -19,7 +19,7 @@ public class LoginWeatherapiTest {
 
     @BeforeClass
     void preConditionsClass() {
-        new ConfigurateBrowserSettings().setUpRemoteBrowser();
+        new ConfigurateBrowserSettings().setUpRemoteServer();
     }
 
     @BeforeMethod

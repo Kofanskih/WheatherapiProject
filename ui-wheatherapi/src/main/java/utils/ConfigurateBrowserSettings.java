@@ -24,4 +24,18 @@ public class ConfigurateBrowserSettings {
         Configuration.browserCapabilities.setCapability("selenoid:options", options);
 
     }
+
+    public void setUpRemoteServer(){
+        Configuration.remote = "http://134.199.212.192:4444/wd/hub";
+        Configuration.browserVersion = "128.0";
+        Configuration.browser = "chrome";
+        Configuration.timeout = 5;
+        MutableCapabilities options = new MutableCapabilities();
+        options.setCapability("enableVNC", true);
+        options.setCapability("enableVideo", true);
+        options.setCapability("screenResolution", "1920x1080x24");
+
+        Configuration.browserCapabilities.setCapability("selenoid:options", options);
+
+    }
 }
