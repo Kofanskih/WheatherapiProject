@@ -27,6 +27,13 @@ public class CurrentWeather {
     }
 
     @Test
+    public void verifyCurrentConditionTextIsNotNull01() throws IOException {
+        new CurrentService().sendGetCurrentRequest1("Benidorm")
+                .then().statusCode(200)
+                .body("current.condition.text", notNullValue());
+    }
+
+    @Test
     public void verifyCurrentConditionTextIsNotNull1() throws IOException{
         CurrentWeatherQueryParams currentWeatherQueryParams = new CurrentWeatherQueryParams();
         currentWeatherQueryParams.setQ("Benidorm");
