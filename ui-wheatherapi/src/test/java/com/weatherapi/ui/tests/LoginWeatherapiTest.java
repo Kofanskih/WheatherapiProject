@@ -34,7 +34,6 @@ public class LoginWeatherapiTest {
                 .goToLoginPage()
                 .fillLoginDataWithUserModel(new LoginUserPageModel().userLogin());
         new PersonalPage().userShouldHaveExactTextOnTheAccountPage(personalAccountText);
-        Selenide.sleep(5000);
 
     }
 
@@ -44,7 +43,6 @@ public class LoginWeatherapiTest {
                 .goToLoginPage()
                 .fillLoginDataWithUserModel(new LoginUserPageModel().userLoginWithWrongPassword());
         new LoginPage().checkWarningLoginMessage(WARNING_MESSAGE);
-        Selenide.sleep(5000);
 
     }
 
@@ -54,7 +52,6 @@ public class LoginWeatherapiTest {
                 .goToLoginPage()
                 .fillLoginDataWithUserModel(new LoginUserPageModel().userLoginWithWrongEmail());
         new LoginPage().checkWarningLoginMessage(WARNING_MESSAGE);
-        Selenide.sleep(5000);
 
     }
 
