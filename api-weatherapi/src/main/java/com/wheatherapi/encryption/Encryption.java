@@ -21,20 +21,21 @@ public class Encryption {
         KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
         keyGenerator.init(128); // Указываем размер ключа
         SecretKey secretKey = keyGenerator.generateKey();
-        System.out.println(secretKey.toString());
+        String key = Base64.getEncoder().encodeToString(secretKey.getEncoded());
+        System.out.println(key);
         return secretKey;
     }
 
-    public static String keyGeneration1() throws NoSuchAlgorithmException {
-        // Генерация ключа для шифрования
-        KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
-        keyGenerator.init(128); // Указываем размер ключа
-        SecretKey secretKey = keyGenerator.generateKey();
-        String key = secretKey.toString();
-        System.out.println(secretKey);
-        return key;
-
-    }
+//    public static String keyGeneration1() throws NoSuchAlgorithmException {
+//        // Генерация ключа для шифрования
+//        KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+//        keyGenerator.init(128); // Указываем размер ключа
+//        SecretKey secretKey = keyGenerator.generateKey();
+//        String key = secretKey.toString();
+//        System.out.println(secretKey);
+//        return key;
+//
+//    }
 
     public static String encryptApi(SecretKey secretKey) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, IOException {
         Cipher cipher = Cipher.getInstance("AES");
