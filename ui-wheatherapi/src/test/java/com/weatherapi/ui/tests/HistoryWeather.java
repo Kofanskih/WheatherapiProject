@@ -28,7 +28,7 @@ public class HistoryWeather {
 
     @BeforeMethod
     void preConditionsMethod() throws IOException {
-        new MainPage().open();
+        new MainPage().open1();
 
     }
 

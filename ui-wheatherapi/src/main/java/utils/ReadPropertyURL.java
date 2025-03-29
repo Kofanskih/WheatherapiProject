@@ -1,7 +1,5 @@
 package utils;
 
-import com.codeborne.selenide.Selenide;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,7 +18,7 @@ public class ReadPropertyURL {
 
 
     public static String getMainUrlProperty() throws IOException {
-       return readUrlProperties().getProperty("main_url");
+       return readUrlProperties().getProperty("main.url");
 
     }
 

@@ -11,6 +11,7 @@ import java.io.IOException;
 
 import static io.restassured.RestAssured.given;
 import static utils.GetMainURL.takeMainURL;
+import static utils.OwnerReadUrl.ownerMainUrl;
 
 public class BaseService {
 
@@ -19,6 +20,17 @@ public class BaseService {
         RequestSpecification reqSpec = given()
                 .contentType(ContentType.JSON)
                 .baseUri(takeMainURL())
+                .queryParam("key",new GetApiKey().takeApiKey("api_key"))
+                .when()
+                .filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
+        return reqSpec;
+
+    }
+
+    protected RequestSpecification baseConfigurationRestAssured1() throws IOException {
+        RequestSpecification reqSpec = given()
+                .contentType(ContentType.JSON)
+                .baseUri(ownerMainUrl())
                 .queryParam("key",new GetApiKey().takeApiKey("api_key"))
                 .when()
                 .filters(new RequestLoggingFilter(), new ResponseLoggingFilter());

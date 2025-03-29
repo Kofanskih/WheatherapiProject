@@ -1,5 +1,6 @@
 package com.weatherapi.ui.tests;
 
+import com.codeborne.selenide.Selenide;
 import com.weatherapi.ui.pageModels.LoginUserPageModel;
 import com.weatherapi.ui.pages.LoginPage;
 import com.weatherapi.ui.pages.MainPage;
@@ -18,7 +19,7 @@ public class LoginWeatherapiTest {
 
     @BeforeClass
     void preConditionsClass() {
-        new ConfigurateBrowserSettings().setUp();
+        new ConfigurateBrowserSettings().setUpRemoteServer();
     }
 
     @BeforeMethod
@@ -37,20 +38,21 @@ public class LoginWeatherapiTest {
     }
 
     @Test
-    void userLoginWithWrongEmail(){
+    void userLoginWithWrongPassword() {
         new MainPage()
                 .goToLoginPage()
-                .fillLoginFormWithWrongEmail(new LoginUserPageModel().userLoginWithWrongEmail());
+                .fillLoginDataWithUserModel(new LoginUserPageModel().userLoginWithWrongPassword());
         new LoginPage().checkWarningLoginMessage(WARNING_MESSAGE);
 
     }
 
     @Test
-    void userLoginWithWrongPassword(){
+    void userLoginWithWrongEmail(){
         new MainPage()
                 .goToLoginPage()
-                .fillLoginFormWithWrongPassword(new LoginUserPageModel().userLoginWithWrongPassword());
+                .fillLoginDataWithUserModel(new LoginUserPageModel().userLoginWithWrongEmail());
         new LoginPage().checkWarningLoginMessage(WARNING_MESSAGE);
 
     }
+
 }

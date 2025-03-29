@@ -26,7 +26,7 @@ public class GetMainURL {
     }
 
     public static String takeMainURL() {
-        String key = readMainUrl().getProperty("main_url");
+        String key = readMainUrl().getProperty("main.url");
         return key;
 
     }

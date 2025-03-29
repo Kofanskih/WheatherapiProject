@@ -16,6 +16,11 @@ public class CurrentService extends BaseService{
                 .get(String.format(CURRENT_PATH, City));
     }
 
+    public Response sendGetCurrentRequest1(String City) throws IOException {
+        return baseConfigurationRestAssured1()
+                .get(String.format(CURRENT_PATH, City));
+    }
+
     public Response sendCurrentRequest1(String path, CurrentWeatherQueryParams currentWeatherQueryParams) throws IOException {
         return baseConfigurationRestAssured()
                 .get(String.format(new GetPath().takePath(path), currentWeatherQueryParams.getQ()));

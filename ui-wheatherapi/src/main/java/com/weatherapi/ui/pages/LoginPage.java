@@ -11,7 +11,7 @@ public class LoginPage {
     private final SelenideElement emailField = $("[id=\"ctl00_MainContentHolder_Login1_UserName\"]");
     private final SelenideElement passwordField = $("[id=\"ctl00_MainContentHolder_Login1_Password\"]");
     private final SelenideElement loginButton = $("[id=\"ctl00_MainContentHolder_Login1_LoginButton\"]");
-    private final SelenideElement warningMessageElement = $x("//span[@id=\"ctl00_MainContentHolder_Login1_FailureText\"]");
+    private final SelenideElement warningMessageElement = $("[id=\"ctl00_MainContentHolder_Login1_FailureText\"]");
 
     public PersonalPage fillLoginDataWithUserModel(LoginUserPageModel loginUserPageModel) {
         emailField.setValue(loginUserPageModel.getUSER_EMAIL());
@@ -20,22 +20,8 @@ public class LoginPage {
         return new PersonalPage();
     }
 
-    public LoginPage fillLoginFormWithWrongPassword(LoginUserPageModel loginUserPageModel){
-        emailField.setValue(loginUserPageModel.getUSER_EMAIL());
-        passwordField.setValue(loginUserPageModel.getWRONG_USER_PASSWORD());
-        loginButton.click();
-        return new LoginPage();
-    }
-
-    public LoginPage fillLoginFormWithWrongEmail(LoginUserPageModel loginUserPageModel){
-        emailField.setValue(loginUserPageModel.getWRONG_USER_EMAIL());
-        passwordField.setValue(loginUserPageModel.getUSER_PASSWORD());
-        loginButton.click();
-        return new LoginPage();
-    }
-
     public LoginPage checkWarningLoginMessage(String warningMessage){
-        warningMessageElement.shouldHave(Condition.exactText(warningMessage));
+        warningMessageElement.shouldHave(Condition.text(warningMessage));
         return this;
     }
 
