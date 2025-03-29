@@ -55,7 +55,15 @@ public class KlavagonkiStep {
 
     }
 
-    @Then("Track the game is over and characters per minute more than (\\d+)")
+//    @Then("Track the game is over and characters per minute more than (\\d+)")
+//    public void theGameIsOver(int minValue){
+//        String result = RESULT_TEXT.getText();
+//        int resultNumber = Integer.parseInt(result);
+//        System.out.println("Characters per minute: " + resultNumber);
+//        Assert.assertTrue(resultNumber > minValue, "Actual value is " + resultNumber);
+//    }
+
+    @Then("Track the game is over and characters per minute more than {int}")
     public void theGameIsOver(int minValue){
         String result = RESULT_TEXT.getText();
         int resultNumber = Integer.parseInt(result);
