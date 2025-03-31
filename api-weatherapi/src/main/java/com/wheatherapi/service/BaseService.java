@@ -5,7 +5,6 @@ import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import utils.GetApiKey;
-import utils.GetMainURL;
 
 import java.io.IOException;
 
