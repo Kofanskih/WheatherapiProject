@@ -8,11 +8,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utils.ConfigurateBrowserSettings;
-import utils.ReadPropertyURL;
 
 import java.io.IOException;
 
-import static utils.ReadPropertyURL.getMainUrlProperty;
 
 
 public class HistoryWeather {

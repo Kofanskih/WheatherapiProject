@@ -5,6 +5,7 @@ import com.weatherapi.ui.pageModels.LoginUserPageModel;
 import com.weatherapi.ui.pages.LoginPage;
 import com.weatherapi.ui.pages.MainPage;
 import com.weatherapi.ui.pages.PersonalPage;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -19,7 +20,7 @@ public class LoginWeatherapiTest {
 
     @BeforeClass
     void preConditionsClass() {
-        new ConfigurateBrowserSettings().setUpRemoteServer();
+        new ConfigurateBrowserSettings().setUp();
     }
 
     @BeforeMethod
@@ -32,7 +33,7 @@ public class LoginWeatherapiTest {
     void userLogin() {
         new MainPage()
                 .goToLoginPage()
-                .fillLoginDataWithUserModel(new LoginUserPageModel().userLogin());
+                .fillLoginDataWithUserModel(new LoginUserPageModel().userLogin()).clickDoNotConsentButton();
         new PersonalPage().userShouldHaveExactTextOnTheAccountPage(personalAccountText);
 
     }
@@ -52,6 +53,14 @@ public class LoginWeatherapiTest {
                 .goToLoginPage()
                 .fillLoginDataWithUserModel(new LoginUserPageModel().userLoginWithWrongEmail());
         new LoginPage().checkWarningLoginMessage(WARNING_MESSAGE);
+
+    }
+
+    @AfterTest
+    void userLogout() {
+        new PersonalPage()
+                //.clickDoNotConsentButton()
+                .logout();
 
     }
 

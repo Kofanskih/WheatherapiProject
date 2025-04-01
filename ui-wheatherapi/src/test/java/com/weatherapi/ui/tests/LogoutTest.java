@@ -24,13 +24,15 @@ public class LogoutTest {
         new MainPage()
                 .open()
                 .goToLoginPage()
-                .fillLoginDataWithUserModel(new LoginUserPageModel().userLogin());
+                .fillLoginDataWithUserModel(new LoginUserPageModel().userLogin())
+                .clickDoNotConsentButton();
 
     }
 
     @Test
     void userLogout() {
         new PersonalPage()
+                //.clickDoNotConsentButton()
                 .logout()
                 .checkUserLogout(loginButton);
 
