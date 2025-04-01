@@ -8,6 +8,7 @@ import static com.codeborne.selenide.Selenide.$x;
 public class PersonalPage {
     private final SelenideElement personalAccount = $x("//h2[@class=\"view-title\"]");
     private final SelenideElement logoutButton = $("[href=\"/logout.aspx\"]");
+    private final SelenideElement doNotConsentButton = $("[aria-label=\"Do not consent\"]");
 
 
     public PersonalPage userShouldHaveExactTextOnTheAccountPage(String personalAccountText){
@@ -18,6 +19,11 @@ public class PersonalPage {
     public MainPage logout(){
         logoutButton.click();
         return new MainPage();
+    }
+
+    public PersonalPage clickDoNotConsentButton(){
+        doNotConsentButton.click();
+        return new PersonalPage();
     }
 
 

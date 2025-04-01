@@ -18,7 +18,7 @@ public class ReadPropertyURL {
 
 
     public static String getMainUrlProperty() throws IOException {
-       return readUrlProperties().getProperty("main.url");
+       return readUrlProperties().getProperty("main_url");
 
     }
 

@@ -7,7 +7,7 @@ import org.aeonbits.owner.Config;
         "classpath:remote.urls.properties"})
 
 public interface OwnerConfig extends Config {
-    @Key("main.url")
+    @Key("main_url")
     String mainUrl();
 
     @Key("localhost.remote")
