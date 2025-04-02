@@ -18,7 +18,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 
-import static com.wheatherapi.encryption.Encryption.keyGeneration;
+import static com.wheatherapi.encryption.Encryption.*;
 import static io.restassured.RestAssured.given;
 import static utils.GetMainURL.takeMainURL;
 
@@ -40,7 +40,7 @@ public class BaseService {
         RequestSpecification reqSpec = given()
                 .contentType(ContentType.JSON)
                 .baseUri(takeMainURL())
-                .queryParam("key", Encryption.decryptApi(keyGeneration(), System.getenv("encodedApi")))
+                .queryParam("key", Encryption.decryptApi(decodeSecretKey("Cn7OdDjKr2iKA+ektLl9IA=="), "jUUbJH57p9Jo29a704qZY4Thp3xWbaBveAb0vYzxjlU="))
                 .when()
                 .filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
         return reqSpec;
