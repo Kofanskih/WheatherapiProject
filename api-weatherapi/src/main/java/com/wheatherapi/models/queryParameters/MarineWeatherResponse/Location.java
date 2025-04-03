@@ -1,30 +1,32 @@
-package com.wheatherapi.models.queryParameters.FutureWeatherResponse;
+package com.wheatherapi.models.queryParameters.MarineWeatherResponse;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 
 @Getter
 public class Location{
-    @JsonProperty
+
+    @JsonProperty("localtime")
     private String localtime;
 
-    @JsonProperty
+    @JsonProperty("country")
     private String country;
 
-    @JsonProperty ("localtime_epoch")
+    @JsonProperty("localtime_epoch")
     private Integer localtimeEpoch;
 
-    @JsonProperty
+    @JsonProperty("name")
     private String name;
 
-    @JsonProperty
+    @JsonProperty("lon")
     private Object lon;
 
-    @JsonProperty
+    @JsonProperty("region")
     private String region;
 
-    @JsonProperty
+    @JsonProperty("lat")
     private Object lat;
 
-    @JsonProperty ("tz_id")
+    @JsonProperty("tz_id")
     private String tzId;
 }
