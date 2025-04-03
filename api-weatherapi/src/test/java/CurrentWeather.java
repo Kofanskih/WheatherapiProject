@@ -35,7 +35,7 @@ public class CurrentWeather {
 
     @Test
     public void verifyCurrentConditionTextIsNotNull01() throws IOException {
-        new CurrentService().sendGetCurrentRequest1("Benidorm")
+        new CurrentService().sendGetCurrentRequest01("Benidorm")
                 .then().statusCode(200)
                 .body("current.condition.text", notNullValue());
     }
