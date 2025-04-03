@@ -1,16 +1,17 @@
-package com.wheatherapi.models.queryParameters.FutureWeatherResponse;
+package com.wheatherapi.models.queryParameters.MarineWeatherResponse;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 
 @Getter
 public class Condition{
-    @JsonProperty ("code")
+
+    @JsonProperty("code")
     private Integer code;
 
-    @JsonProperty ("icon")
+    @JsonProperty("icon")
     private String icon;
 
-    @JsonProperty ("text")
+    @JsonProperty("text")
     private String text;
 }

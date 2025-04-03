@@ -3,6 +3,7 @@ package com.wheatherapi.service;
 import com.wheatherapi.AssertableResponse;
 import com.wheatherapi.models.queryParameters.CurrentWeatherRequest.CurrentWeatherQueryParams;
 import io.restassured.response.Response;
+import lombok.SneakyThrows;
 import utils.GetPath;
 
 import java.io.IOException;
@@ -11,15 +12,18 @@ public class CurrentService extends BaseService{
     private final String REQUIRED_Q = "q";
     private final String CURRENT_PATH = "/current.json?q=%s";
 
+
     public Response sendGetCurrentRequest(String City) throws IOException {
         return baseConfigurationRestAssured()
                 .get(String.format(CURRENT_PATH, City));
     }
 
-    public Response sendGetCurrentRequest1(String City) throws IOException {
+    @SneakyThrows
+    public Response sendGetCurrentRequest01(String City) throws IOException {
         return baseConfigurationRestAssured1()
                 .get(String.format(CURRENT_PATH, City));
     }
+
 
     public Response sendCurrentRequest1(String path, CurrentWeatherQueryParams currentWeatherQueryParams) throws IOException {
         return baseConfigurationRestAssured()
