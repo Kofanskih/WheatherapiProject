@@ -5,7 +5,12 @@ import com.wheatherapi.models.queryParameters.ForecastWeatherRequest.ForecastWea
 import io.restassured.response.Response;
 import utils.GetPath;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 
 public class ForecastService extends BaseService{
     private final String FORECAST_PATH = "/forecast.json?q=%s&days=%s";
