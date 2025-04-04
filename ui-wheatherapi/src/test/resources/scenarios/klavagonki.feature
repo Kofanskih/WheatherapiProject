@@ -8,4 +8,4 @@ Feature: bot for site klavagonki
     When Start the game
     And Wait for the game start
     And Enter highlighted word in cicle
-    Then Track the game is over and characters per minute more than 1500
+    Then Track the game is over and characters per minute more than 2500
