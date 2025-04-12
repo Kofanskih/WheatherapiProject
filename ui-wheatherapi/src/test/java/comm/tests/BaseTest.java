@@ -35,6 +35,7 @@ public abstract class BaseTest {
     AfterTestExecutionCallback callback =
             context -> {
                 Optional<Throwable> exception = context.getExecutionException();
+                browserContext.close();
                 if (exception.isPresent()) {
                     needVideo = true;
                     captureScreenshotOnFailure();
