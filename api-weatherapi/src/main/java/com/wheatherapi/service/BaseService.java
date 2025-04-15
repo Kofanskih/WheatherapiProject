@@ -40,7 +40,7 @@ public class BaseService {
         RequestSpecification reqSpec = given()
                 .contentType(ContentType.JSON)
                 .baseUri(takeMainURL())
-                .queryParam("key", Encryption.decryptApi(decodeSecretKey("Cn7OdDjKr2iKA+ektLl9IA=="), "jUUbJH57p9Jo29a704qZY4Thp3xWbaBveAb0vYzxjlU="))
+                .queryParam("key", Encryption.decryptApi(decodeSecretKey(System.getenv("secretKey")), System.getenv("encodedApi")))
                 .when()
                 .filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
         return reqSpec;

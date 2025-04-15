@@ -37,7 +37,6 @@ public class Encryption {
         String secretApi = "076542489b7542299d1200203250703";
         byte[] encryptedApi = cipher.doFinal(secretApi.getBytes());
         String encodedMessage = Base64.getEncoder().encodeToString(encryptedApi);
-
         return encodedMessage;
     }
 
@@ -46,8 +45,6 @@ public class Encryption {
         cipher.init(Cipher.DECRYPT_MODE, secretKey);
         byte[] decryptedBytes = cipher.doFinal(Base64.getDecoder().decode(encodedMessage));
         String decryptedMessage = new String(decryptedBytes);
-        System.out.println("Расшифрованное сообщение: " + decryptedMessage);
-
         return decryptedMessage;
 
     }
