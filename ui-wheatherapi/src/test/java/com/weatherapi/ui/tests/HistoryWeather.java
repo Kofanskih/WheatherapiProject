@@ -1,6 +1,5 @@
 package com.weatherapi.ui.tests;
 
-import com.codeborne.selenide.Selenide;
 import com.weatherapi.ui.pages.HistoryPage;
 
 import com.weatherapi.ui.pages.MainPage;
@@ -26,7 +25,7 @@ public class HistoryWeather {
 
     @BeforeMethod
     void preConditionsMethod() throws IOException {
-        new MainPage().open1();
+        new MainPage().open();
 
     }
 
