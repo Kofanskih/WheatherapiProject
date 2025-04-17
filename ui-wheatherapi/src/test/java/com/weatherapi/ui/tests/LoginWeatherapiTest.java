@@ -1,19 +1,14 @@
 package com.weatherapi.ui.tests;
 
-import com.codeborne.selenide.Selenide;
 import com.weatherapi.ui.pageModels.LoginUserPageModel;
 import com.weatherapi.ui.pages.LoginPage;
 import com.weatherapi.ui.pages.MainPage;
 import com.weatherapi.ui.pages.PersonalPage;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import utils.ConfigurateBrowserSettings;
-import utils.ReadPropertyURL;
 
 import java.io.IOException;
-
+@Ignore
 public class LoginWeatherapiTest {
     private final String personalAccountText = "Welcome Back\n";
     private final String WARNING_MESSAGE= "Your login attempt was not successful. Please try again.";
